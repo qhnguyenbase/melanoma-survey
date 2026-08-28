@@ -1703,15 +1703,34 @@ def _sheet_client():
 
 
 def _worksheet(name: str, headers: list[str] | None):
-    """Fetch a tab by name, creating it (with a header row) if absent."""
+    """Fetch a tab by name, creating it (with a header row) if absent.
+
+    Also restores a header row that has gone missing. Tools read these tabs with
+    get_all_records(), which treats row 1 as the column names -- so a tab whose
+    header was deleted silently consumes the first response as its header and
+    mislabels every column after it.
+    """
     spreadsheet = _sheet_client().open(SHEET_NAME)
     try:
-        return spreadsheet.worksheet(name)
+        worksheet = spreadsheet.worksheet(name)
     except Exception:
-        worksheet = spreadsheet.add_worksheet(title=name, rows=1000, cols=max(len(headers or []), 12))
+        worksheet = spreadsheet.add_worksheet(
+            title=name, rows=1000, cols=max(len(headers or []), 12)
+        )
         if headers:
             worksheet.append_row(list(headers))
         return worksheet
+
+    if headers:
+        try:
+            first = worksheet.row_values(1)
+        except Exception:
+            first = []
+        # Every header this app writes begins with Timestamp, so a first cell
+        # that does not is either empty or a data row that has drifted up.
+        if not first or (first[0] or "").strip() != "Timestamp":
+            worksheet.insert_row(list(headers), index=1)
+    return worksheet
 
 
 @st.cache_data(ttl=60, show_spinner=False)
