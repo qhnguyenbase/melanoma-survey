@@ -1644,6 +1644,52 @@ def _worksheet(name: str, headers: list[str] | None):
         return worksheet
 
 
+@st.cache_data(ttl=60, show_spinner=False)
+def sheets_status() -> tuple[bool, str]:
+    """Actually try to reach the spreadsheet and report precisely what is wrong.
+
+    'Nothing is being saved' has several distinct causes that need different
+    fixes, so this distinguishes them rather than reporting a generic failure.
+    Cached briefly so it is not re-run on every rerun.
+    """
+    if not sheets_configured():
+        return False, (
+            "No credentials found. Add the [gcp_service_account] block to this "
+            "app's Secrets (Manage app -> Settings -> Secrets). Creating the "
+            "Google Sheet alone is not enough -- the app also needs a service "
+            "account key to write to it."
+        )
+    try:
+        client = _sheet_client()
+    except Exception as exc:
+        return False, (
+            f"Credentials present but rejected by Google: {exc}. The key is "
+            "usually malformed -- regenerate the Secrets block with "
+            "make_secrets.py rather than editing private_key by hand."
+        )
+    try:
+        client.open(SHEET_NAME)
+    except Exception as exc:
+        name = type(exc).__name__
+        if "SpreadsheetNotFound" in name:
+            try:
+                who = dict(st.secrets["gcp_service_account"]).get("client_email", "the service account")
+            except Exception:
+                who = "the service account"
+            return False, (
+                f"Signed in to Google, but no spreadsheet named '{SHEET_NAME}' is "
+                f"visible. Either the name differs (it must match exactly), or the "
+                f"Sheet has not been shared with {who} as an Editor."
+            )
+        if "APIError" in name and "403" in str(exc):
+            return False, (
+                f"Google refused access ({exc}). Enable both the Google Sheets API "
+                "and the Google Drive API for this project in the Cloud Console."
+            )
+        return False, f"Could not open '{SHEET_NAME}': {exc}"
+    return True, f"Connected to '{SHEET_NAME}'."
+
+
 def append_to_sheet(row, worksheet_name: str = "participants", headers=None) -> bool:
     """Append one row to a tab of the survey spreadsheet.
 
@@ -1652,6 +1698,13 @@ def append_to_sheet(row, worksheet_name: str = "participants", headers=None) -> 
     LOST and must be surfaced to the participant, never swallowed.
     """
     if not sheets_configured():
+        # Silently returning here would let the app report "saved" while the
+        # row goes only to a disk that is wiped on the next restart.
+        st.error(
+            "This response was NOT saved to permanent storage: the survey has no "
+            "Google Sheets credentials configured. Please tell the researcher "
+            "before continuing -- your answers will otherwise be lost."
+        )
         return False
     try:
         _worksheet(worksheet_name, headers).append_row(

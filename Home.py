@@ -4,7 +4,7 @@ Landing page for participant registration.
 
 import streamlit as st
 
-from utils import init_session, save_participant
+from utils import init_session, save_participant, sheets_status
 
 
 def main() -> None:
@@ -17,6 +17,17 @@ def main() -> None:
     init_session()
 
     st.title("Doctor Participation Confirmation")
+
+    # Storage is checked on the landing page rather than left to fail silently
+    # at submit time: on a hosted app the local filesystem is wiped on every
+    # restart, so a broken Sheets connection means every response is lost.
+    storage_ok, storage_detail = sheets_status()
+    if not storage_ok:
+        st.error(
+            "**Responses are not being saved.** Please contact the researcher "
+            "before starting.\n\n"
+            f"Technical detail: {storage_detail}"
+        )
 
     st.markdown(
         """
