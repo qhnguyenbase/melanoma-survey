@@ -1,0 +1,10 @@
+[server]
+headless = true
+# Survey images are a few MB; no large uploads happen.
+maxUploadSize = 10
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+base = "light"

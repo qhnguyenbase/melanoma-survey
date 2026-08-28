@@ -1,0 +1,3990 @@
+{
+ "weakly_supervised|b7920d2675936347": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.15734638273715973,
+  "explanation_image": "weakly_supervised/b7920d2675936347/1_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/b7920d2675936347/1_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/b7920d2675936347",
+  "checklist_table": [
+   [
+    "pigment network",
+    "absent",
+    "absent",
+    "0",
+    "22.4"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "31.1"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "5.9"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "9.1"
+   ],
+   [
+    "dots and globules",
+    "absent",
+    "absent",
+    "0",
+    "38.1"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "1.6"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.0"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "0",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "absent",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_2/1.bmp"
+ },
+ "weakly_supervised|d2de10e98f3463b3": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.19498248398303986,
+  "explanation_image": "weakly_supervised/d2de10e98f3463b3/2_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/d2de10e98f3463b3/2_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/d2de10e98f3463b3",
+  "checklist_table": [
+   [
+    "pigment network",
+    "typical",
+    "regular",
+    "0",
+    "23.9"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "19.0"
+   ],
+   [
+    "pigmentation",
+    "diffuse irregular",
+    "irregular",
+    "1",
+    "47.5"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "13.9"
+   ],
+   [
+    "dots and globules",
+    "absent",
+    "absent",
+    "0",
+    "21.3"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "4.2"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.3"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "1",
+    ""
+   ]
+  ],
+  "top_attribute": "pigmentation",
+  "top_attribute_label": "diffuse irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_2/2.jpg"
+ },
+ "weakly_supervised|92156183b1d7a8ee": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.7266712188720703,
+  "explanation_image": "weakly_supervised/92156183b1d7a8ee/3_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/92156183b1d7a8ee/3_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/92156183b1d7a8ee",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "78.8"
+   ],
+   [
+    "streaks",
+    "irregular",
+    "irregular",
+    "1",
+    "65.5"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "9.0"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "34.8"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "82.5"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "24.1"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.1"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "4",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_2/3.jpg"
+ },
+ "weakly_supervised|5ee4896451a1baba": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.5421002507209778,
+  "explanation_image": "weakly_supervised/5ee4896451a1baba/4_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/5ee4896451a1baba/4_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/5ee4896451a1baba",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "62.5"
+   ],
+   [
+    "streaks",
+    "irregular",
+    "irregular",
+    "1",
+    "55.3"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "29.6"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "23.6"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "63.4"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "10.0"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.0"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "4",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_2/4.bmp"
+ },
+ "weakly_supervised|6bb4b516f42abed9": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.7138534188270569,
+  "explanation_image": "weakly_supervised/6bb4b516f42abed9/5_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/6bb4b516f42abed9/5_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/6bb4b516f42abed9",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "60.3"
+   ],
+   [
+    "streaks",
+    "irregular",
+    "irregular",
+    "1",
+    "79.4"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "34.1"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "41.2"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "87.8"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "13.6"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.5"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "4",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_2/5.bmp"
+ },
+ "weakly_supervised|b1f687938246c63f": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.5007546544075012,
+  "explanation_image": "weakly_supervised/b1f687938246c63f/6_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/b1f687938246c63f/6_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/b1f687938246c63f",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "81.4"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "40.1"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "14.4"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "20.3"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "54.0"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "4.1"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.2"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "3",
+    ""
+   ]
+  ],
+  "top_attribute": "pigment network",
+  "top_attribute_label": "atypical",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_2/6.bmp"
+ },
+ "weakly_supervised|a5f00af06c698727": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.7090178728103638,
+  "explanation_image": "weakly_supervised/a5f00af06c698727/7_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/a5f00af06c698727/7_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/a5f00af06c698727",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "95.1"
+   ],
+   [
+    "streaks",
+    "irregular",
+    "irregular",
+    "1",
+    "76.7"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "42.3"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "10.3"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "66.7"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "1.2"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.3"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "4",
+    ""
+   ]
+  ],
+  "top_attribute": "pigment network",
+  "top_attribute_label": "atypical",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_2/7.jpg"
+ },
+ "weakly_supervised|aa613412b7f24a01": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.740241289138794,
+  "explanation_image": "weakly_supervised/aa613412b7f24a01/8_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/aa613412b7f24a01/8_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/aa613412b7f24a01",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "80.5"
+   ],
+   [
+    "streaks",
+    "irregular",
+    "irregular",
+    "1",
+    "89.1"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "31.7"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "22.0"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "79.4"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "10.7"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.1"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "4",
+    ""
+   ]
+  ],
+  "top_attribute": "streaks",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_2/8.jpg"
+ },
+ "weakly_supervised|2accac8cf925322d": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.12111711502075195,
+  "explanation_image": "weakly_supervised/2accac8cf925322d/1_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/2accac8cf925322d/1_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/2accac8cf925322d",
+  "checklist_table": [
+   [
+    "pigment network",
+    "absent",
+    "absent",
+    "0",
+    "8.7"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "4.1"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "20.0"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "16.0"
+   ],
+   [
+    "dots and globules",
+    "regular",
+    "regular",
+    "0",
+    "36.7"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "3.7"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.1"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "0",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "regular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_3/1.bmp"
+ },
+ "weakly_supervised|6e2b5f68d5f0e5ef": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.4482802748680115,
+  "explanation_image": "weakly_supervised/6e2b5f68d5f0e5ef/2_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/6e2b5f68d5f0e5ef/2_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/6e2b5f68d5f0e5ef",
+  "checklist_table": [
+   [
+    "pigment network",
+    "typical",
+    "regular",
+    "0",
+    "43.6"
+   ],
+   [
+    "streaks",
+    "irregular",
+    "irregular",
+    "1",
+    "54.3"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "48.2"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "20.6"
+   ],
+   [
+    "dots and globules",
+    "regular",
+    "regular",
+    "0",
+    "36.9"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "16.0"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.0"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "1",
+    ""
+   ]
+  ],
+  "top_attribute": "streaks",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_3/2.bmp"
+ },
+ "weakly_supervised|8c846491b2565866": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.5428042411804199,
+  "explanation_image": "weakly_supervised/8c846491b2565866/3_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/8c846491b2565866/3_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/8c846491b2565866",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "79.3"
+   ],
+   [
+    "streaks",
+    "irregular",
+    "irregular",
+    "1",
+    "62.0"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "17.5"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "23.1"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "53.4"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "1.2"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.1"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "4",
+    ""
+   ]
+  ],
+  "top_attribute": "pigment network",
+  "top_attribute_label": "atypical",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_3/3.jpg"
+ },
+ "weakly_supervised|c07229e3b9cf2bae": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.49140581488609314,
+  "explanation_image": "weakly_supervised/c07229e3b9cf2bae/4_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/c07229e3b9cf2bae/4_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/c07229e3b9cf2bae",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "67.8"
+   ],
+   [
+    "streaks",
+    "irregular",
+    "irregular",
+    "1",
+    "78.4"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "20.2"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "7.7"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "44.9"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "4.8"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.1"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "4",
+    ""
+   ]
+  ],
+  "top_attribute": "streaks",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_3/4.jpg"
+ },
+ "weakly_supervised|f82bec739ff53225": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.26135164499282837,
+  "explanation_image": "weakly_supervised/f82bec739ff53225/5_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/f82bec739ff53225/5_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/f82bec739ff53225",
+  "checklist_table": [
+   [
+    "pigment network",
+    "absent",
+    "absent",
+    "0",
+    "16.4"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "14.9"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "25.5"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "32.1"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "59.1"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "15.7"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.1"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "1",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_3/5.bmp"
+ },
+ "weakly_supervised|20a34a0ad41b2830": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.4367455244064331,
+  "explanation_image": "weakly_supervised/20a34a0ad41b2830/6_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/20a34a0ad41b2830/6_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/20a34a0ad41b2830",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "65.1"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "22.8"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "12.5"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "32.5"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "74.8"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "0.2"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.7"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "3",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_3/6.jpg"
+ },
+ "weakly_supervised|fdc320b5db4f6749": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.5199438333511353,
+  "explanation_image": "weakly_supervised/fdc320b5db4f6749/7_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/fdc320b5db4f6749/7_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/fdc320b5db4f6749",
+  "checklist_table": [
+   [
+    "pigment network",
+    "typical",
+    "regular",
+    "0",
+    "42.4"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "30.9"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "13.3"
+   ],
+   [
+    "regression structures",
+    "blue areas",
+    "present",
+    "1",
+    "64.8"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "88.8"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "12.7"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.0"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "2",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_3/7.bmp"
+ },
+ "weakly_supervised|c118b145d9544dea": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.9362925291061401,
+  "explanation_image": "weakly_supervised/c118b145d9544dea/8_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/c118b145d9544dea/8_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/c118b145d9544dea",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "81.8"
+   ],
+   [
+    "streaks",
+    "irregular",
+    "irregular",
+    "1",
+    "95.7"
+   ],
+   [
+    "pigmentation",
+    "diffuse irregular",
+    "irregular",
+    "1",
+    "82.4"
+   ],
+   [
+    "regression structures",
+    "combinations",
+    "present",
+    "1",
+    "69.1"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "94.4"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "30.2"
+   ],
+   [
+    "vascular structures",
+    "within regression",
+    "present",
+    "0",
+    "1.6"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "6",
+    ""
+   ]
+  ],
+  "top_attribute": "streaks",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_3/8.jpg"
+ },
+ "heatmap|0caea4cc2fd653d5": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.2887256443500519,
+  "explanation_image": "heatmap/0caea4cc2fd653d5/IMD013_heatmap.png",
+  "explanation_pdf": "heatmap/0caea4cc2fd653d5/IMD013_heatmap.pdf",
+  "artifact_dir": "heatmap/0caea4cc2fd653d5",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD013.bmp"
+ },
+ "prototree|0caea4cc2fd653d5": {
+  "prediction": "Benign",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/0caea4cc2fd653d5/IMD013_718b5dec_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/0caea4cc2fd653d5/IMD013_718b5dec_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/0caea4cc2fd653d5/IMD013_718b5dec_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/0caea4cc2fd653d5/IMD013_718b5dec_global_plus_local.pdf",
+  "artifact_dir": "prototree/0caea4cc2fd653d5",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD013.bmp"
+ },
+ "clustering|0caea4cc2fd653d5": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.16455696202531644,
+  "explanation_image": "clustering/0caea4cc2fd653d5/IMD013_clustering_global.png",
+  "explanation_image_global": "clustering/0caea4cc2fd653d5/IMD013_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/0caea4cc2fd653d5/IMD013_clustering.pdf",
+  "artifact_dir": "clustering/0caea4cc2fd653d5",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "2",
+  "resolved_image_id": "IMD013",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD396",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/0caea4cc2fd653d5/cases/IMD396.bmp"
+   },
+   {
+    "image_key": "IMD398",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/0caea4cc2fd653d5/cases/IMD398.bmp"
+   },
+   {
+    "image_key": "IMD076",
+    "distance": 1.169535649474687,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/0caea4cc2fd653d5/cases/IMD076.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD013.bmp"
+ },
+ "weakly_supervised|0caea4cc2fd653d5": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.2717706859111786,
+  "explanation_image": "weakly_supervised/0caea4cc2fd653d5/IMD013_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/0caea4cc2fd653d5/IMD013_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/0caea4cc2fd653d5",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "58.7"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "26.5"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "11.9"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "10.6"
+   ],
+   [
+    "dots and globules",
+    "regular",
+    "regular",
+    "0",
+    "24.9"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "4.9"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.0"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "2",
+    ""
+   ]
+  ],
+  "top_attribute": "pigment network",
+  "top_attribute_label": "atypical",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD013.bmp"
+ },
+ "heatmap|acc6d66e23e5cead": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.06964175403118134,
+  "explanation_image": "heatmap/acc6d66e23e5cead/IMD144_heatmap.png",
+  "explanation_pdf": "heatmap/acc6d66e23e5cead/IMD144_heatmap.pdf",
+  "artifact_dir": "heatmap/acc6d66e23e5cead",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD144.bmp"
+ },
+ "prototree|acc6d66e23e5cead": {
+  "prediction": "Benign",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/acc6d66e23e5cead/IMD144_477a4fec_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/acc6d66e23e5cead/IMD144_477a4fec_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/acc6d66e23e5cead/IMD144_477a4fec_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/acc6d66e23e5cead/IMD144_477a4fec_global_plus_local.pdf",
+  "artifact_dir": "prototree/acc6d66e23e5cead",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD144.bmp"
+ },
+ "clustering|acc6d66e23e5cead": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.010752688172043012,
+  "explanation_image": "clustering/acc6d66e23e5cead/IMD144_clustering_global.png",
+  "explanation_image_global": "clustering/acc6d66e23e5cead/IMD144_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/acc6d66e23e5cead/IMD144_clustering.pdf",
+  "artifact_dir": "clustering/acc6d66e23e5cead",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "0",
+  "resolved_image_id": "IMD144",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD016",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/acc6d66e23e5cead/cases/IMD016.bmp"
+   },
+   {
+    "image_key": "IMD038",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/acc6d66e23e5cead/cases/IMD038.bmp"
+   },
+   {
+    "image_key": "IMD042",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/acc6d66e23e5cead/cases/IMD042.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD144.bmp"
+ },
+ "weakly_supervised|acc6d66e23e5cead": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.2989819645881653,
+  "explanation_image": "weakly_supervised/acc6d66e23e5cead/IMD144_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/acc6d66e23e5cead/IMD144_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/acc6d66e23e5cead",
+  "checklist_table": [
+   [
+    "pigment network",
+    "typical",
+    "regular",
+    "0",
+    "33.6"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "24.0"
+   ],
+   [
+    "pigmentation",
+    "diffuse irregular",
+    "irregular",
+    "1",
+    "58.7"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "8.7"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "51.6"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "2.3"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.0"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "2",
+    ""
+   ]
+  ],
+  "top_attribute": "pigmentation",
+  "top_attribute_label": "diffuse irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD144.bmp"
+ },
+ "heatmap|8d544f36d6e12d9e": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.45573583245277405,
+  "explanation_image": "heatmap/8d544f36d6e12d9e/IMD152_heatmap.png",
+  "explanation_pdf": "heatmap/8d544f36d6e12d9e/IMD152_heatmap.pdf",
+  "artifact_dir": "heatmap/8d544f36d6e12d9e",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD152.bmp"
+ },
+ "prototree|8d544f36d6e12d9e": {
+  "prediction": "Benign",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/8d544f36d6e12d9e/IMD152_863f5d2d_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/8d544f36d6e12d9e/IMD152_863f5d2d_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/8d544f36d6e12d9e/IMD152_863f5d2d_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/8d544f36d6e12d9e/IMD152_863f5d2d_global_plus_local.pdf",
+  "artifact_dir": "prototree/8d544f36d6e12d9e",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD152.bmp"
+ },
+ "clustering|8d544f36d6e12d9e": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.010752688172043012,
+  "explanation_image": "clustering/8d544f36d6e12d9e/IMD152_clustering_global.png",
+  "explanation_image_global": "clustering/8d544f36d6e12d9e/IMD152_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/8d544f36d6e12d9e/IMD152_clustering.pdf",
+  "artifact_dir": "clustering/8d544f36d6e12d9e",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "0",
+  "resolved_image_id": "IMD152",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD016",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/8d544f36d6e12d9e/cases/IMD016.bmp"
+   },
+   {
+    "image_key": "IMD038",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/8d544f36d6e12d9e/cases/IMD038.bmp"
+   },
+   {
+    "image_key": "IMD042",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/8d544f36d6e12d9e/cases/IMD042.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD152.bmp"
+ },
+ "weakly_supervised|8d544f36d6e12d9e": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.19687974452972412,
+  "explanation_image": "weakly_supervised/8d544f36d6e12d9e/IMD152_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/8d544f36d6e12d9e/IMD152_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/8d544f36d6e12d9e",
+  "checklist_table": [
+   [
+    "pigment network",
+    "typical",
+    "regular",
+    "0",
+    "23.4"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "6.0"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "30.8"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "14.2"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "46.5"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "7.3"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.3"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "1",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD152.bmp"
+ },
+ "heatmap|b4742ee049a96fa4": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.3500961363315582,
+  "explanation_image": "heatmap/b4742ee049a96fa4/IMD175_heatmap.png",
+  "explanation_pdf": "heatmap/b4742ee049a96fa4/IMD175_heatmap.pdf",
+  "artifact_dir": "heatmap/b4742ee049a96fa4",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD175.bmp"
+ },
+ "prototree|b4742ee049a96fa4": {
+  "prediction": "Benign",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/b4742ee049a96fa4/IMD175_67944657_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/b4742ee049a96fa4/IMD175_67944657_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/b4742ee049a96fa4/IMD175_67944657_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/b4742ee049a96fa4/IMD175_67944657_global_plus_local.pdf",
+  "artifact_dir": "prototree/b4742ee049a96fa4",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD175.bmp"
+ },
+ "clustering|b4742ee049a96fa4": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.010752688172043012,
+  "explanation_image": "clustering/b4742ee049a96fa4/IMD175_clustering_global.png",
+  "explanation_image_global": "clustering/b4742ee049a96fa4/IMD175_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/b4742ee049a96fa4/IMD175_clustering.pdf",
+  "artifact_dir": "clustering/b4742ee049a96fa4",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "0",
+  "resolved_image_id": "IMD175",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD016",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/b4742ee049a96fa4/cases/IMD016.bmp"
+   },
+   {
+    "image_key": "IMD038",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/b4742ee049a96fa4/cases/IMD038.bmp"
+   },
+   {
+    "image_key": "IMD042",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/b4742ee049a96fa4/cases/IMD042.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD175.bmp"
+ },
+ "weakly_supervised|b4742ee049a96fa4": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.15876276791095734,
+  "explanation_image": "weakly_supervised/b4742ee049a96fa4/IMD175_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/b4742ee049a96fa4/IMD175_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/b4742ee049a96fa4",
+  "checklist_table": [
+   [
+    "pigment network",
+    "typical",
+    "regular",
+    "0",
+    "27.7"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "6.1"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "10.0"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "5.1"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "51.5"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "2.5"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.0"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "1",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD175.bmp"
+ },
+ "heatmap|598718c1b02a6f59": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.37265849113464355,
+  "explanation_image": "heatmap/598718c1b02a6f59/IMD176_heatmap.png",
+  "explanation_pdf": "heatmap/598718c1b02a6f59/IMD176_heatmap.pdf",
+  "artifact_dir": "heatmap/598718c1b02a6f59",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD176.bmp"
+ },
+ "prototree|598718c1b02a6f59": {
+  "prediction": "Benign",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/598718c1b02a6f59/IMD176_69f93fa4_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/598718c1b02a6f59/IMD176_69f93fa4_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/598718c1b02a6f59/IMD176_69f93fa4_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/598718c1b02a6f59/IMD176_69f93fa4_global_plus_local.pdf",
+  "artifact_dir": "prototree/598718c1b02a6f59",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD176.bmp"
+ },
+ "clustering|598718c1b02a6f59": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.010752688172043012,
+  "explanation_image": "clustering/598718c1b02a6f59/IMD176_clustering_global.png",
+  "explanation_image_global": "clustering/598718c1b02a6f59/IMD176_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/598718c1b02a6f59/IMD176_clustering.pdf",
+  "artifact_dir": "clustering/598718c1b02a6f59",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "0",
+  "resolved_image_id": "IMD176",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD197",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/598718c1b02a6f59/cases/IMD197.bmp"
+   },
+   {
+    "image_key": "IMD204",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/598718c1b02a6f59/cases/IMD204.bmp"
+   },
+   {
+    "image_key": "IMD155",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/598718c1b02a6f59/cases/IMD155.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD176.bmp"
+ },
+ "weakly_supervised|598718c1b02a6f59": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.16678163409233093,
+  "explanation_image": "weakly_supervised/598718c1b02a6f59/IMD176_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/598718c1b02a6f59/IMD176_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/598718c1b02a6f59",
+  "checklist_table": [
+   [
+    "pigment network",
+    "typical",
+    "regular",
+    "0",
+    "27.5"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "9.3"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "10.7"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "8.2"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "47.7"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "4.0"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.1"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "1",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD176.bmp"
+ },
+ "heatmap|a7dd2f07c4abfc7d": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.0623447485268116,
+  "explanation_image": "heatmap/a7dd2f07c4abfc7d/IMD304_heatmap.png",
+  "explanation_pdf": "heatmap/a7dd2f07c4abfc7d/IMD304_heatmap.pdf",
+  "artifact_dir": "heatmap/a7dd2f07c4abfc7d",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD304.bmp"
+ },
+ "prototree|a7dd2f07c4abfc7d": {
+  "prediction": "Benign",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/a7dd2f07c4abfc7d/IMD304_d7cb1572_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/a7dd2f07c4abfc7d/IMD304_d7cb1572_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/a7dd2f07c4abfc7d/IMD304_d7cb1572_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/a7dd2f07c4abfc7d/IMD304_d7cb1572_global_plus_local.pdf",
+  "artifact_dir": "prototree/a7dd2f07c4abfc7d",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD304.bmp"
+ },
+ "clustering|a7dd2f07c4abfc7d": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.16455696202531644,
+  "explanation_image": "clustering/a7dd2f07c4abfc7d/IMD304_clustering_global.png",
+  "explanation_image_global": "clustering/a7dd2f07c4abfc7d/IMD304_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/a7dd2f07c4abfc7d/IMD304_clustering.pdf",
+  "artifact_dir": "clustering/a7dd2f07c4abfc7d",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "2",
+  "resolved_image_id": "IMD304",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD075",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/a7dd2f07c4abfc7d/cases/IMD075.bmp"
+   },
+   {
+    "image_key": "IMD006",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/a7dd2f07c4abfc7d/cases/IMD006.bmp"
+   },
+   {
+    "image_key": "IMD305",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/a7dd2f07c4abfc7d/cases/IMD305.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD304.bmp"
+ },
+ "weakly_supervised|a7dd2f07c4abfc7d": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.21551430225372314,
+  "explanation_image": "weakly_supervised/a7dd2f07c4abfc7d/IMD304_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/a7dd2f07c4abfc7d/IMD304_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/a7dd2f07c4abfc7d",
+  "checklist_table": [
+   [
+    "pigment network",
+    "typical",
+    "regular",
+    "0",
+    "19.3"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "17.0"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "26.0"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "32.8"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "47.8"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "4.0"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.3"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "1",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD304.bmp"
+ },
+ "heatmap|9003725eb529b0f6": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.15374690294265747,
+  "explanation_image": "heatmap/9003725eb529b0f6/IMD365_heatmap.png",
+  "explanation_pdf": "heatmap/9003725eb529b0f6/IMD365_heatmap.pdf",
+  "artifact_dir": "heatmap/9003725eb529b0f6",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD365.bmp"
+ },
+ "prototree|9003725eb529b0f6": {
+  "prediction": "Benign",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/9003725eb529b0f6/IMD365_1ddae3bf_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/9003725eb529b0f6/IMD365_1ddae3bf_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/9003725eb529b0f6/IMD365_1ddae3bf_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/9003725eb529b0f6/IMD365_1ddae3bf_global_plus_local.pdf",
+  "artifact_dir": "prototree/9003725eb529b0f6",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD365.bmp"
+ },
+ "clustering|9003725eb529b0f6": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.010752688172043012,
+  "explanation_image": "clustering/9003725eb529b0f6/IMD365_clustering_global.png",
+  "explanation_image_global": "clustering/9003725eb529b0f6/IMD365_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/9003725eb529b0f6/IMD365_clustering.pdf",
+  "artifact_dir": "clustering/9003725eb529b0f6",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "0",
+  "resolved_image_id": "IMD365",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD024",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/9003725eb529b0f6/cases/IMD024.bmp"
+   },
+   {
+    "image_key": "IMD150",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/9003725eb529b0f6/cases/IMD150.bmp"
+   },
+   {
+    "image_key": "IMD177",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/9003725eb529b0f6/cases/IMD177.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD365.bmp"
+ },
+ "weakly_supervised|9003725eb529b0f6": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.2510785460472107,
+  "explanation_image": "weakly_supervised/9003725eb529b0f6/IMD365_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/9003725eb529b0f6/IMD365_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/9003725eb529b0f6",
+  "checklist_table": [
+   [
+    "pigment network",
+    "typical",
+    "regular",
+    "0",
+    "24.5"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "14.1"
+   ],
+   [
+    "pigmentation",
+    "diffuse irregular",
+    "irregular",
+    "1",
+    "61.4"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "7.9"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "52.4"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "3.0"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.0"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "2",
+    ""
+   ]
+  ],
+  "top_attribute": "pigmentation",
+  "top_attribute_label": "diffuse irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD365.bmp"
+ },
+ "heatmap|b0bdf6cc417286c2": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.5439385771751404,
+  "explanation_image": "heatmap/b0bdf6cc417286c2/IMD371_heatmap.png",
+  "explanation_pdf": "heatmap/b0bdf6cc417286c2/IMD371_heatmap.pdf",
+  "artifact_dir": "heatmap/b0bdf6cc417286c2",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD371.bmp"
+ },
+ "prototree|b0bdf6cc417286c2": {
+  "prediction": "Benign",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/b0bdf6cc417286c2/IMD371_becea6e5_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/b0bdf6cc417286c2/IMD371_becea6e5_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/b0bdf6cc417286c2/IMD371_becea6e5_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/b0bdf6cc417286c2/IMD371_becea6e5_global_plus_local.pdf",
+  "artifact_dir": "prototree/b0bdf6cc417286c2",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD371.bmp"
+ },
+ "clustering|b0bdf6cc417286c2": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.010752688172043012,
+  "explanation_image": "clustering/b0bdf6cc417286c2/IMD371_clustering_global.png",
+  "explanation_image_global": "clustering/b0bdf6cc417286c2/IMD371_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/b0bdf6cc417286c2/IMD371_clustering.pdf",
+  "artifact_dir": "clustering/b0bdf6cc417286c2",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "0",
+  "resolved_image_id": "IMD371",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD003",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/b0bdf6cc417286c2/cases/IMD003.bmp"
+   },
+   {
+    "image_key": "IMD009",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/b0bdf6cc417286c2/cases/IMD009.bmp"
+   },
+   {
+    "image_key": "IMD022",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/b0bdf6cc417286c2/cases/IMD022.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD371.bmp"
+ },
+ "weakly_supervised|b0bdf6cc417286c2": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.1509726196527481,
+  "explanation_image": "weakly_supervised/b0bdf6cc417286c2/IMD371_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/b0bdf6cc417286c2/IMD371_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/b0bdf6cc417286c2",
+  "checklist_table": [
+   [
+    "pigment network",
+    "typical",
+    "regular",
+    "0",
+    "17.2"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "13.5"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "41.6"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "5.8"
+   ],
+   [
+    "dots and globules",
+    "regular",
+    "regular",
+    "0",
+    "26.2"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "2.9"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.0"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "0",
+    ""
+   ]
+  ],
+  "top_attribute": "pigmentation",
+  "top_attribute_label": "absent",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD371.bmp"
+ },
+ "heatmap|801047472d757142": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.19076426327228546,
+  "explanation_image": "heatmap/801047472d757142/IMD396_heatmap.png",
+  "explanation_pdf": "heatmap/801047472d757142/IMD396_heatmap.pdf",
+  "artifact_dir": "heatmap/801047472d757142",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD396.bmp"
+ },
+ "prototree|801047472d757142": {
+  "prediction": "Benign",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/801047472d757142/IMD396_e1423924_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/801047472d757142/IMD396_e1423924_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/801047472d757142/IMD396_e1423924_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/801047472d757142/IMD396_e1423924_global_plus_local.pdf",
+  "artifact_dir": "prototree/801047472d757142",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD396.bmp"
+ },
+ "clustering|801047472d757142": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.16455696202531644,
+  "explanation_image": "clustering/801047472d757142/IMD396_clustering_global.png",
+  "explanation_image_global": "clustering/801047472d757142/IMD396_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/801047472d757142/IMD396_clustering.pdf",
+  "artifact_dir": "clustering/801047472d757142",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "2",
+  "resolved_image_id": "IMD396",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD013",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/801047472d757142/cases/IMD013.bmp"
+   },
+   {
+    "image_key": "IMD398",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/801047472d757142/cases/IMD398.bmp"
+   },
+   {
+    "image_key": "IMD076",
+    "distance": 1.169535649474687,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/801047472d757142/cases/IMD076.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD396.bmp"
+ },
+ "weakly_supervised|801047472d757142": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.7395434975624084,
+  "explanation_image": "weakly_supervised/801047472d757142/IMD396_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/801047472d757142/IMD396_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/801047472d757142",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "77.1"
+   ],
+   [
+    "streaks",
+    "irregular",
+    "irregular",
+    "1",
+    "69.9"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "19.0"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "29.8"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "80.9"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "25.3"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.0"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "4",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD396.bmp"
+ },
+ "heatmap|4f971b83523124bc": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.5000900626182556,
+  "explanation_image": "heatmap/4f971b83523124bc/IMD436_heatmap.png",
+  "explanation_pdf": "heatmap/4f971b83523124bc/IMD436_heatmap.pdf",
+  "artifact_dir": "heatmap/4f971b83523124bc",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD436.bmp"
+ },
+ "prototree|4f971b83523124bc": {
+  "prediction": "Benign",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/4f971b83523124bc/IMD436_7479c142_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/4f971b83523124bc/IMD436_7479c142_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/4f971b83523124bc/IMD436_7479c142_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/4f971b83523124bc/IMD436_7479c142_global_plus_local.pdf",
+  "artifact_dir": "prototree/4f971b83523124bc",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD436.bmp"
+ },
+ "clustering|4f971b83523124bc": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.16455696202531644,
+  "explanation_image": "clustering/4f971b83523124bc/IMD436_clustering_global.png",
+  "explanation_image_global": "clustering/4f971b83523124bc/IMD436_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/4f971b83523124bc/IMD436_clustering.pdf",
+  "artifact_dir": "clustering/4f971b83523124bc",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "2",
+  "resolved_image_id": "IMD436",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD002",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/4f971b83523124bc/cases/IMD002.bmp"
+   },
+   {
+    "image_key": "IMD004",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/4f971b83523124bc/cases/IMD004.bmp"
+   },
+   {
+    "image_key": "IMD032",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/4f971b83523124bc/cases/IMD032.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD436.bmp"
+ },
+ "weakly_supervised|4f971b83523124bc": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.20757469534873962,
+  "explanation_image": "weakly_supervised/4f971b83523124bc/IMD436_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/4f971b83523124bc/IMD436_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/4f971b83523124bc",
+  "checklist_table": [
+   [
+    "pigment network",
+    "typical",
+    "regular",
+    "0",
+    "30.9"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "10.1"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "7.1"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "20.8"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "53.1"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "6.5"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.0"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "1",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD436.bmp"
+ },
+ "heatmap|d935d587a5a22b8c": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.6337982416152954,
+  "explanation_image": "heatmap/d935d587a5a22b8c/IMD064_heatmap.png",
+  "explanation_pdf": "heatmap/d935d587a5a22b8c/IMD064_heatmap.pdf",
+  "artifact_dir": "heatmap/d935d587a5a22b8c",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD064.bmp"
+ },
+ "prototree|d935d587a5a22b8c": {
+  "prediction": "Melanoma",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/d935d587a5a22b8c/IMD064_3e50d9b4_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/d935d587a5a22b8c/IMD064_3e50d9b4_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/d935d587a5a22b8c/IMD064_3e50d9b4_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/d935d587a5a22b8c/IMD064_3e50d9b4_global_plus_local.pdf",
+  "artifact_dir": "prototree/d935d587a5a22b8c",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD064.bmp"
+ },
+ "clustering|d935d587a5a22b8c": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.9285714285714286,
+  "explanation_image": "clustering/d935d587a5a22b8c/IMD064_clustering_global.png",
+  "explanation_image_global": "clustering/d935d587a5a22b8c/IMD064_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/d935d587a5a22b8c/IMD064_clustering.pdf",
+  "artifact_dir": "clustering/d935d587a5a22b8c",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "1",
+  "resolved_image_id": "IMD064",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD080",
+    "distance": 0.0,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/d935d587a5a22b8c/cases/IMD080.bmp"
+   },
+   {
+    "image_key": "IMD240",
+    "distance": 1.1953620277206254,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/d935d587a5a22b8c/cases/IMD240.bmp"
+   },
+   {
+    "image_key": "IMD168",
+    "distance": 1.1953620277206256,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/d935d587a5a22b8c/cases/IMD168.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD064.bmp"
+ },
+ "weakly_supervised|d935d587a5a22b8c": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.8879330158233643,
+  "explanation_image": "weakly_supervised/d935d587a5a22b8c/IMD064_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/d935d587a5a22b8c/IMD064_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/d935d587a5a22b8c",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "60.7"
+   ],
+   [
+    "streaks",
+    "irregular",
+    "irregular",
+    "1",
+    "68.2"
+   ],
+   [
+    "pigmentation",
+    "diffuse irregular",
+    "irregular",
+    "1",
+    "68.7"
+   ],
+   [
+    "regression structures",
+    "combinations",
+    "present",
+    "1",
+    "63.0"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "97.0"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "43.4"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.9"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "6",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD064.bmp"
+ },
+ "heatmap|e9943c11491e543b": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.7730236649513245,
+  "explanation_image": "heatmap/e9943c11491e543b/IMD065_heatmap.png",
+  "explanation_pdf": "heatmap/e9943c11491e543b/IMD065_heatmap.pdf",
+  "artifact_dir": "heatmap/e9943c11491e543b",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD065.bmp"
+ },
+ "prototree|e9943c11491e543b": {
+  "prediction": "Melanoma",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/e9943c11491e543b/IMD065_0f21ff0b_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/e9943c11491e543b/IMD065_0f21ff0b_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/e9943c11491e543b/IMD065_0f21ff0b_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/e9943c11491e543b/IMD065_0f21ff0b_global_plus_local.pdf",
+  "artifact_dir": "prototree/e9943c11491e543b",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD065.bmp"
+ },
+ "clustering|e9943c11491e543b": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.9285714285714286,
+  "explanation_image": "clustering/e9943c11491e543b/IMD065_clustering_global.png",
+  "explanation_image_global": "clustering/e9943c11491e543b/IMD065_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/e9943c11491e543b/IMD065_clustering.pdf",
+  "artifact_dir": "clustering/e9943c11491e543b",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "1",
+  "resolved_image_id": "IMD065",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD061",
+    "distance": 0.0,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/e9943c11491e543b/cases/IMD061.bmp"
+   },
+   {
+    "image_key": "IMD240",
+    "distance": 1.4142135623730951,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/e9943c11491e543b/cases/IMD240.bmp"
+   },
+   {
+    "image_key": "IMD349",
+    "distance": 1.4142135623730951,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/e9943c11491e543b/cases/IMD349.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD065.bmp"
+ },
+ "weakly_supervised|e9943c11491e543b": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.9714280962944031,
+  "explanation_image": "weakly_supervised/e9943c11491e543b/IMD065_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/e9943c11491e543b/IMD065_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/e9943c11491e543b",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "91.2"
+   ],
+   [
+    "streaks",
+    "irregular",
+    "irregular",
+    "1",
+    "98.1"
+   ],
+   [
+    "pigmentation",
+    "diffuse irregular",
+    "irregular",
+    "1",
+    "96.6"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "45.7"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "92.5"
+   ],
+   [
+    "blue whitish veil",
+    "present",
+    "present",
+    "2",
+    "68.6"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.2"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "7",
+    ""
+   ]
+  ],
+  "top_attribute": "streaks",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD065.bmp"
+ },
+ "heatmap|510fb24fe63e785d": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.777524471282959,
+  "explanation_image": "heatmap/510fb24fe63e785d/IMD211_heatmap.png",
+  "explanation_pdf": "heatmap/510fb24fe63e785d/IMD211_heatmap.pdf",
+  "artifact_dir": "heatmap/510fb24fe63e785d",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD211.bmp"
+ },
+ "prototree|510fb24fe63e785d": {
+  "prediction": "Benign",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/510fb24fe63e785d/IMD211_67f03720_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/510fb24fe63e785d/IMD211_67f03720_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/510fb24fe63e785d/IMD211_67f03720_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/510fb24fe63e785d/IMD211_67f03720_global_plus_local.pdf",
+  "artifact_dir": "prototree/510fb24fe63e785d",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD211.bmp"
+ },
+ "clustering|510fb24fe63e785d": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.16455696202531644,
+  "explanation_image": "clustering/510fb24fe63e785d/IMD211_clustering_global.png",
+  "explanation_image_global": "clustering/510fb24fe63e785d/IMD211_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/510fb24fe63e785d/IMD211_clustering.pdf",
+  "artifact_dir": "clustering/510fb24fe63e785d",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "2",
+  "resolved_image_id": "IMD211",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD049",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/510fb24fe63e785d/cases/IMD049.bmp"
+   },
+   {
+    "image_key": "IMD085",
+    "distance": 1.169535649474687,
+    "true_label": 1,
+    "predicted_label": 0,
+    "image_path": "clustering/510fb24fe63e785d/cases/IMD085.bmp"
+   },
+   {
+    "image_key": "IMD002",
+    "distance": 1.4142135623730951,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/510fb24fe63e785d/cases/IMD002.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD211.bmp"
+ },
+ "weakly_supervised|510fb24fe63e785d": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.31166014075279236,
+  "explanation_image": "weakly_supervised/510fb24fe63e785d/IMD211_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/510fb24fe63e785d/IMD211_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/510fb24fe63e785d",
+  "checklist_table": [
+   [
+    "pigment network",
+    "absent",
+    "absent",
+    "0",
+    "16.7"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "16.2"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "47.5"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "10.8"
+   ],
+   [
+    "dots and globules",
+    "absent",
+    "absent",
+    "0",
+    "33.3"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "39.7"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.1"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "0",
+    ""
+   ]
+  ],
+  "top_attribute": "pigmentation",
+  "top_attribute_label": "absent",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD211.bmp"
+ },
+ "heatmap|1cb5901daf10bccd": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.6654502153396606,
+  "explanation_image": "heatmap/1cb5901daf10bccd/IMD409_heatmap.png",
+  "explanation_pdf": "heatmap/1cb5901daf10bccd/IMD409_heatmap.pdf",
+  "artifact_dir": "heatmap/1cb5901daf10bccd",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD409.bmp"
+ },
+ "prototree|1cb5901daf10bccd": {
+  "prediction": "Melanoma",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/1cb5901daf10bccd/IMD409_b2eeb168_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/1cb5901daf10bccd/IMD409_b2eeb168_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/1cb5901daf10bccd/IMD409_b2eeb168_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/1cb5901daf10bccd/IMD409_b2eeb168_global_plus_local.pdf",
+  "artifact_dir": "prototree/1cb5901daf10bccd",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD409.bmp"
+ },
+ "clustering|1cb5901daf10bccd": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.9285714285714286,
+  "explanation_image": "clustering/1cb5901daf10bccd/IMD409_clustering_global.png",
+  "explanation_image_global": "clustering/1cb5901daf10bccd/IMD409_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/1cb5901daf10bccd/IMD409_clustering.pdf",
+  "artifact_dir": "clustering/1cb5901daf10bccd",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "1",
+  "resolved_image_id": "IMD409",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD168",
+    "distance": 1.1953620277206252,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/1cb5901daf10bccd/cases/IMD168.bmp"
+   },
+   {
+    "image_key": "IMD408",
+    "distance": 1.4142135623730951,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/1cb5901daf10bccd/cases/IMD408.bmp"
+   },
+   {
+    "image_key": "IMD088",
+    "distance": 1.8517263235468584,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/1cb5901daf10bccd/cases/IMD088.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD409.bmp"
+ },
+ "weakly_supervised|1cb5901daf10bccd": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.8881064057350159,
+  "explanation_image": "weakly_supervised/1cb5901daf10bccd/IMD409_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/1cb5901daf10bccd/IMD409_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/1cb5901daf10bccd",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "80.6"
+   ],
+   [
+    "streaks",
+    "irregular",
+    "irregular",
+    "1",
+    "71.3"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "45.8"
+   ],
+   [
+    "regression structures",
+    "combinations",
+    "present",
+    "1",
+    "77.6"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "94.4"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "28.1"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.4"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "5",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD409.bmp"
+ },
+ "heatmap|74bf526fe0df5676": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.42834022641181946,
+  "explanation_image": "heatmap/74bf526fe0df5676/IMD410_heatmap.png",
+  "explanation_pdf": "heatmap/74bf526fe0df5676/IMD410_heatmap.pdf",
+  "artifact_dir": "heatmap/74bf526fe0df5676",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD410.bmp"
+ },
+ "prototree|74bf526fe0df5676": {
+  "prediction": "Benign",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/74bf526fe0df5676/IMD410_b77ea96e_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/74bf526fe0df5676/IMD410_b77ea96e_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/74bf526fe0df5676/IMD410_b77ea96e_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/74bf526fe0df5676/IMD410_b77ea96e_global_plus_local.pdf",
+  "artifact_dir": "prototree/74bf526fe0df5676",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD410.bmp"
+ },
+ "clustering|74bf526fe0df5676": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.16455696202531644,
+  "explanation_image": "clustering/74bf526fe0df5676/IMD410_clustering_global.png",
+  "explanation_image_global": "clustering/74bf526fe0df5676/IMD410_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/74bf526fe0df5676/IMD410_clustering.pdf",
+  "artifact_dir": "clustering/74bf526fe0df5676",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "2",
+  "resolved_image_id": "IMD410",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD037",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/74bf526fe0df5676/cases/IMD037.bmp"
+   },
+   {
+    "image_key": "IMD137",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/74bf526fe0df5676/cases/IMD137.bmp"
+   },
+   {
+    "image_key": "IMD138",
+    "distance": 0.0,
+    "true_label": 0,
+    "predicted_label": 0,
+    "image_path": "clustering/74bf526fe0df5676/cases/IMD138.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD410.bmp"
+ },
+ "weakly_supervised|74bf526fe0df5676": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.3991662859916687,
+  "explanation_image": "weakly_supervised/74bf526fe0df5676/IMD410_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/74bf526fe0df5676/IMD410_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/74bf526fe0df5676",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "63.7"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "14.4"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "33.0"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "22.0"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "58.1"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "2.0"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.1"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "3",
+    ""
+   ]
+  ],
+  "top_attribute": "pigment network",
+  "top_attribute_label": "atypical",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD410.bmp"
+ },
+ "heatmap|d7704245f0044ed6": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.28326573967933655,
+  "explanation_image": "heatmap/d7704245f0044ed6/IMD419_heatmap.png",
+  "explanation_pdf": "heatmap/d7704245f0044ed6/IMD419_heatmap.pdf",
+  "artifact_dir": "heatmap/d7704245f0044ed6",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD419.bmp"
+ },
+ "prototree|d7704245f0044ed6": {
+  "prediction": "Benign",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/d7704245f0044ed6/IMD419_8516db1d_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/d7704245f0044ed6/IMD419_8516db1d_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/d7704245f0044ed6/IMD419_8516db1d_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/d7704245f0044ed6/IMD419_8516db1d_global_plus_local.pdf",
+  "artifact_dir": "prototree/d7704245f0044ed6",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD419.bmp"
+ },
+ "clustering|d7704245f0044ed6": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.9285714285714286,
+  "explanation_image": "clustering/d7704245f0044ed6/IMD419_clustering_global.png",
+  "explanation_image_global": "clustering/d7704245f0044ed6/IMD419_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/d7704245f0044ed6/IMD419_clustering.pdf",
+  "artifact_dir": "clustering/d7704245f0044ed6",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "1",
+  "resolved_image_id": "IMD419",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD435",
+    "distance": 0.0,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/d7704245f0044ed6/cases/IMD435.bmp"
+   },
+   {
+    "image_key": "IMD405",
+    "distance": 1.4142135623730951,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/d7704245f0044ed6/cases/IMD405.bmp"
+   },
+   {
+    "image_key": "IMD210",
+    "distance": 1.8517263235468586,
+    "true_label": 0,
+    "predicted_label": 1,
+    "image_path": "clustering/d7704245f0044ed6/cases/IMD210.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD419.bmp"
+ },
+ "weakly_supervised|d7704245f0044ed6": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.785832941532135,
+  "explanation_image": "weakly_supervised/d7704245f0044ed6/IMD419_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/d7704245f0044ed6/IMD419_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/d7704245f0044ed6",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "80.5"
+   ],
+   [
+    "streaks",
+    "irregular",
+    "irregular",
+    "1",
+    "79.1"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "27.7"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "40.9"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "86.4"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "17.2"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.3"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "4",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD419.bmp"
+ },
+ "heatmap|fca5e48e075d49c7": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.5964402556419373,
+  "explanation_image": "heatmap/fca5e48e075d49c7/IMD420_heatmap.png",
+  "explanation_pdf": "heatmap/fca5e48e075d49c7/IMD420_heatmap.pdf",
+  "artifact_dir": "heatmap/fca5e48e075d49c7",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD420.bmp"
+ },
+ "prototree|fca5e48e075d49c7": {
+  "prediction": "Melanoma",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/fca5e48e075d49c7/IMD420_9f75e566_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/fca5e48e075d49c7/IMD420_9f75e566_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/fca5e48e075d49c7/IMD420_9f75e566_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/fca5e48e075d49c7/IMD420_9f75e566_global_plus_local.pdf",
+  "artifact_dir": "prototree/fca5e48e075d49c7",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD420.bmp"
+ },
+ "clustering|fca5e48e075d49c7": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.9285714285714286,
+  "explanation_image": "clustering/fca5e48e075d49c7/IMD420_clustering_global.png",
+  "explanation_image_global": "clustering/fca5e48e075d49c7/IMD420_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/fca5e48e075d49c7/IMD420_clustering.pdf",
+  "artifact_dir": "clustering/fca5e48e075d49c7",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "1",
+  "resolved_image_id": "IMD420",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD088",
+    "distance": 0.0,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/fca5e48e075d49c7/cases/IMD088.bmp"
+   },
+   {
+    "image_key": "IMD348",
+    "distance": 0.0,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/fca5e48e075d49c7/cases/IMD348.bmp"
+   },
+   {
+    "image_key": "IMD408",
+    "distance": 1.1953620277206252,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/fca5e48e075d49c7/cases/IMD408.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD420.bmp"
+ },
+ "weakly_supervised|fca5e48e075d49c7": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.847055196762085,
+  "explanation_image": "weakly_supervised/fca5e48e075d49c7/IMD420_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/fca5e48e075d49c7/IMD420_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/fca5e48e075d49c7",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "65.1"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "33.4"
+   ],
+   [
+    "pigmentation",
+    "diffuse irregular",
+    "irregular",
+    "1",
+    "67.4"
+   ],
+   [
+    "regression structures",
+    "combinations",
+    "present",
+    "1",
+    "80.8"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "90.0"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "34.2"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.5"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "5",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD420.bmp"
+ },
+ "heatmap|beeefac4df46c594": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.6456772685050964,
+  "explanation_image": "heatmap/beeefac4df46c594/IMD421_heatmap.png",
+  "explanation_pdf": "heatmap/beeefac4df46c594/IMD421_heatmap.pdf",
+  "artifact_dir": "heatmap/beeefac4df46c594",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD421.bmp"
+ },
+ "prototree|beeefac4df46c594": {
+  "prediction": "Melanoma",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/beeefac4df46c594/IMD421_8306af7e_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/beeefac4df46c594/IMD421_8306af7e_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/beeefac4df46c594/IMD421_8306af7e_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/beeefac4df46c594/IMD421_8306af7e_global_plus_local.pdf",
+  "artifact_dir": "prototree/beeefac4df46c594",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD421.bmp"
+ },
+ "clustering|beeefac4df46c594": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.9285714285714286,
+  "explanation_image": "clustering/beeefac4df46c594/IMD421_clustering_global.png",
+  "explanation_image_global": "clustering/beeefac4df46c594/IMD421_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/beeefac4df46c594/IMD421_clustering.pdf",
+  "artifact_dir": "clustering/beeefac4df46c594",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "1",
+  "resolved_image_id": "IMD421",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD219",
+    "distance": 0.0,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/beeefac4df46c594/cases/IMD219.bmp"
+   },
+   {
+    "image_key": "IMD425",
+    "distance": 0.0,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/beeefac4df46c594/cases/IMD425.bmp"
+   },
+   {
+    "image_key": "IMD417",
+    "distance": 1.1953620277206252,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/beeefac4df46c594/cases/IMD417.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD421.bmp"
+ },
+ "weakly_supervised|beeefac4df46c594": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.5705149173736572,
+  "explanation_image": "weakly_supervised/beeefac4df46c594/IMD421_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/beeefac4df46c594/IMD421_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/beeefac4df46c594",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "47.0"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "6.0"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "48.4"
+   ],
+   [
+    "regression structures",
+    "combinations",
+    "present",
+    "1",
+    "81.7"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "86.9"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "5.3"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.4"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "4",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD421.bmp"
+ },
+ "heatmap|9aec556b90fab059": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.7326076626777649,
+  "explanation_image": "heatmap/9aec556b90fab059/IMD425_heatmap.png",
+  "explanation_pdf": "heatmap/9aec556b90fab059/IMD425_heatmap.pdf",
+  "artifact_dir": "heatmap/9aec556b90fab059",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD425.bmp"
+ },
+ "prototree|9aec556b90fab059": {
+  "prediction": "Melanoma",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/9aec556b90fab059/IMD425_27c21d4b_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/9aec556b90fab059/IMD425_27c21d4b_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/9aec556b90fab059/IMD425_27c21d4b_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/9aec556b90fab059/IMD425_27c21d4b_global_plus_local.pdf",
+  "artifact_dir": "prototree/9aec556b90fab059",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD425.bmp"
+ },
+ "clustering|9aec556b90fab059": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.9285714285714286,
+  "explanation_image": "clustering/9aec556b90fab059/IMD425_clustering_global.png",
+  "explanation_image_global": "clustering/9aec556b90fab059/IMD425_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/9aec556b90fab059/IMD425_clustering.pdf",
+  "artifact_dir": "clustering/9aec556b90fab059",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "1",
+  "resolved_image_id": "IMD425",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD219",
+    "distance": 0.0,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/9aec556b90fab059/cases/IMD219.bmp"
+   },
+   {
+    "image_key": "IMD421",
+    "distance": 0.0,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/9aec556b90fab059/cases/IMD421.bmp"
+   },
+   {
+    "image_key": "IMD417",
+    "distance": 1.1953620277206252,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/9aec556b90fab059/cases/IMD417.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD425.bmp"
+ },
+ "weakly_supervised|9aec556b90fab059": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.7270898222923279,
+  "explanation_image": "weakly_supervised/9aec556b90fab059/IMD425_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/9aec556b90fab059/IMD425_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/9aec556b90fab059",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "67.9"
+   ],
+   [
+    "streaks",
+    "absent",
+    "absent",
+    "0",
+    "35.3"
+   ],
+   [
+    "pigmentation",
+    "diffuse irregular",
+    "irregular",
+    "1",
+    "53.7"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "56.1"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "93.4"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "11.6"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.2"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "4",
+    ""
+   ]
+  ],
+  "top_attribute": "dots and globules",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD425.bmp"
+ },
+ "heatmap|234a6a38cc2674a0": {
+  "prediction": "Benign",
+  "prob_melanoma": 0.4789499044418335,
+  "explanation_image": "heatmap/234a6a38cc2674a0/IMD429_heatmap.png",
+  "explanation_pdf": "heatmap/234a6a38cc2674a0/IMD429_heatmap.pdf",
+  "artifact_dir": "heatmap/234a6a38cc2674a0",
+  "model_backend": "heatmap_grad_cam_resnet18",
+  "model_checkpoint": "vendor/heatmap_explain/artifacts_fixed_pdf_test/resnet18_ph2_melanoma_best.pt",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD429.bmp"
+ },
+ "prototree|234a6a38cc2674a0": {
+  "prediction": "Benign",
+  "prob_melanoma": null,
+  "explanation_image": "prototree/234a6a38cc2674a0/IMD429_bf5824f2_global_plus_local_local_preview.png",
+  "explanation_image_global": "prototree/234a6a38cc2674a0/IMD429_bf5824f2_global_plus_local_global_preview.png",
+  "explanation_image_local": "prototree/234a6a38cc2674a0/IMD429_bf5824f2_global_plus_local_local_preview.png",
+  "explanation_pdf": "prototree/234a6a38cc2674a0/IMD429_bf5824f2_global_plus_local.pdf",
+  "artifact_dir": "prototree/234a6a38cc2674a0",
+  "model_backend": "prototree_single_infer.py",
+  "model_checkpoint": "vendor/ProtoTree/runs/prototree_ph2_depth3/checkpoints/pruned_and_projected",
+  "preview_source": "pdf",
+  "_source_image": "phase_4/IMD429.bmp"
+ },
+ "clustering|234a6a38cc2674a0": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.9285714285714286,
+  "explanation_image": "clustering/234a6a38cc2674a0/IMD429_clustering_global.png",
+  "explanation_image_global": "clustering/234a6a38cc2674a0/IMD429_clustering_global.png",
+  "global_preview_label": "latent space position",
+  "explanation_pdf": "clustering/234a6a38cc2674a0/IMD429_clustering.pdf",
+  "artifact_dir": "clustering/234a6a38cc2674a0",
+  "explanation_note": "Clustering explanation is based on tabular features linked to this image ID.",
+  "show_pdf_inline": false,
+  "top_attribute": "Assigned cluster",
+  "top_attribute_label": "1",
+  "resolved_image_id": "IMD429",
+  "resolved_image_id_source": "filename",
+  "nearest_latent_cases": [
+   {
+    "image_key": "IMD058",
+    "distance": 2.0,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/234a6a38cc2674a0/cases/IMD058.bmp"
+   },
+   {
+    "image_key": "IMD210",
+    "distance": 2.6268126920062413,
+    "true_label": 0,
+    "predicted_label": 1,
+    "image_path": "clustering/234a6a38cc2674a0/cases/IMD210.bmp"
+   },
+   {
+    "image_key": "IMD168",
+    "distance": 2.733359570486238,
+    "true_label": 1,
+    "predicted_label": 1,
+    "image_path": "clustering/234a6a38cc2674a0/cases/IMD168.bmp"
+   }
+  ],
+  "model_backend": "clustering_cluster.py",
+  "model_checkpoint": "vendor/clustering/artifacts/melanoma_cluster_model.joblib",
+  "preview_source": "pdf",
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD429.bmp"
+ },
+ "weakly_supervised|234a6a38cc2674a0": {
+  "prediction": "Melanoma",
+  "prob_melanoma": 0.7272021174430847,
+  "explanation_image": "weakly_supervised/234a6a38cc2674a0/IMD429_weakly_supervised_viz.png",
+  "explanation_pdf": "weakly_supervised/234a6a38cc2674a0/IMD429_weakly_supervised_explain.pdf",
+  "artifact_dir": "weakly_supervised/234a6a38cc2674a0",
+  "checklist_table": [
+   [
+    "pigment network",
+    "atypical",
+    "irregular",
+    "2",
+    "59.6"
+   ],
+   [
+    "streaks",
+    "irregular",
+    "irregular",
+    "1",
+    "79.6"
+   ],
+   [
+    "pigmentation",
+    "absent",
+    "absent",
+    "0",
+    "27.3"
+   ],
+   [
+    "regression structures",
+    "absent",
+    "absent",
+    "0",
+    "38.3"
+   ],
+   [
+    "dots and globules",
+    "irregular",
+    "irregular",
+    "1",
+    "61.3"
+   ],
+   [
+    "blue whitish veil",
+    "absent",
+    "absent",
+    "0",
+    "36.2"
+   ],
+   [
+    "vascular structures",
+    "absent",
+    "absent",
+    "0",
+    "0.0"
+   ],
+   [
+    "Total dermoscopic score",
+    "",
+    "",
+    "4",
+    ""
+   ]
+  ],
+  "top_attribute": "streaks",
+  "top_attribute_label": "irregular",
+  "model_backend": "multiweakly_src_infer.py",
+  "model_checkpoint": "vendor/weakly_supervised_prototype/outputs/best.pt",
+  "preview_source": "pdf",
+  "explanation_image_global": null,
+  "explanation_image_local": null,
+  "_source_image": "phase_4/IMD429.bmp"
+ }
+}

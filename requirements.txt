@@ -1,0 +1,14 @@
+# Runtime dependencies for the DEPLOYED survey.
+#
+# The app serves explanations from precomputed/ (built by precompute.py), so it
+# never imports torch, ProtoTree, LIME, OpenCV or scikit-learn. Those live in
+# requirements-dev.txt and are only needed to regenerate the cache locally.
+#
+# Keep this list minimal: a free host gives ~1 GB of RAM.
+
+streamlit==1.45.1
+pypdfium2==5.5.0      # renders explanation PDFs to PNG for inline preview
+Pillow==11.1.0
+pandas==2.2.3
+gspread==6.2.1        # durable response storage; the host filesystem is ephemeral
+oauth2client==4.1.3

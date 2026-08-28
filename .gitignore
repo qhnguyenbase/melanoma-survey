@@ -1,0 +1,14 @@
+# Never commit credentials: they go in Streamlit secrets instead.
+service_account.json
+.streamlit/secrets.toml
+
+# Participant data must never be committed: this repo may be public, and the
+# rows carry names and email addresses. Google Sheets is the durable copy.
+data/*.csv
+data/*.json
+data/*.bak
+data/*.md
+
+__pycache__/
+*.pyc
+.venv/
