@@ -11,6 +11,7 @@ from typing import Any
 import streamlit as st
 
 from utils import (
+    require_registration,
     append_to_sheet,
     cleanup_result_cache,
     DATA_DIR,
@@ -74,6 +75,7 @@ def render_phase4_page() -> None:
     st.set_page_config(page_title="Phase 4", page_icon="🧪", layout="centered")
 
     init_session()
+    require_registration()
 
     st.title("Phase 4: Explanation Comparison")
 

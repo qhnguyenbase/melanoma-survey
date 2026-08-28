@@ -4,13 +4,14 @@ from datetime import datetime
 
 import streamlit as st
 
-from utils import DATA_DIR, init_session, save_to_csv
+from utils import DATA_DIR, init_session, require_registration, save_to_csv
 
 
 def render_thank_you_page() -> None:
     st.set_page_config(page_title="Thank You", page_icon="🩺", layout="centered")
 
     init_session()
+    require_registration()
 
     name = st.session_state.get("name")
     participant_label = f", {name}" if name else ""

@@ -2,13 +2,14 @@ from __future__ import annotations
 
 import streamlit as st
 
-from utils import init_session
+from utils import init_session, require_registration
 
 
 def render_intro_page() -> None:
     st.set_page_config(page_title="Introduction", page_icon="🩺", layout="centered")
 
     init_session()
+    require_registration()
 
     name = st.session_state.get("name")
     email = st.session_state.get("email")
@@ -48,7 +49,7 @@ def render_intro_page() -> None:
     st.markdown("### Before you begin")
     st.markdown(
         """
-        - Use the sidebar to move between pages when needed.
+        - Use the buttons at the bottom of each page to move through the survey.
         - Complete each phase in order.
         - For diagnosis questions, answer based on your own judgment.
         - For Phase 4, score each explanation type before submitting the final evaluation.

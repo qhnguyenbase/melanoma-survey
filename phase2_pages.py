@@ -7,6 +7,10 @@ from typing import Any
 import streamlit as st
 
 from utils import (
+    require_registration,
+    already_submitted,
+    mark_submitted,
+    render_next_button,
     cleanup_result_artifacts,
     DATA_DIR,
     ensure_response_timer,
@@ -23,6 +27,7 @@ def render_phase2_intro() -> None:
     st.set_page_config(page_title="Phase 2", page_icon="🧪", layout="centered")
 
     init_session()
+    require_registration()
 
     st.title("Phase 2: AI-Assisted Diagnosis")
 
@@ -41,7 +46,7 @@ def render_phase2_intro() -> None:
     st.markdown("### How to review the image and get a prediction")
     st.markdown(
         """
-        1. Open a Phase 2 question page from the sidebar or click the button below.
+        1. Click the button below to begin the Phase 2 questions.
         2. Review the image shown on the page for that question.
         3. Click `Run inference`.
         4. The app will run the melanoma prediction model on that question image.
@@ -63,6 +68,7 @@ def render_phase2_question(question_number: int, total_questions: int = 8) -> No
     )
 
     init_session()
+    require_registration()
 
     st.markdown(
         f"### Phase 2 - Question {question_number}: Review the image and the AI prediction."
@@ -141,12 +147,17 @@ def render_phase2_question(question_number: int, total_questions: int = 8) -> No
         disabled=result is None,
     )
 
+    submitted = already_submitted(question_key)
+    # `disabled` is presentation only -- a double click can still deliver a
+    # second event, which is how the duplicate rows in the collected data
+    # arose. The write path itself has to be idempotent.
     if st.button(
         "Submit",
         type="primary",
         key=f"{question_key}_submit",
-        disabled=result is None,
-    ):
+        disabled=result is None or submitted,
+    ) and not submitted:
+        mark_submitted(question_key)
         st.session_state[f"{question_key}_answer"] = answer
         st.session_state[f"{question_key}_confidence"] = confidence
 
@@ -183,10 +194,17 @@ def render_phase2_question(question_number: int, total_questions: int = 8) -> No
             headers,
         )
 
+        submitted = True
+
+    if submitted:
         if question_number < total_questions:
-            st.success("Saved your answer. Use the sidebar to continue to the next Phase 2 question.")
+            st.success("Saved your answer.")
         else:
-            st.success("Saved your answer. Phase 2 is complete. Use the sidebar to continue to Phase 3.")
+            st.success("Saved your answer. Phase 2 is complete.")
+        render_next_button(
+            f"pages/{9 + question_number}_Phase_2_Question_{question_number}.py",
+            "Next question" if question_number < total_questions else "Continue to Phase 3",
+        )
 
 
 def _render_phase2_prediction(result: dict[str, Any]) -> None:

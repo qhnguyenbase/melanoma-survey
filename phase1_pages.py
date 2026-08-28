@@ -6,6 +6,11 @@ from pathlib import Path
 import streamlit as st
 
 from utils import (
+    require_registration,
+    already_submitted,
+    mark_submitted,
+    render_next_button,
+    require_registration,
     DATA_DIR,
     ensure_response_timer,
     get_phase1_question_images,
@@ -21,6 +26,7 @@ def render_phase1_intro() -> None:
     st.set_page_config(page_title="Phase 1", page_icon="🧪", layout="centered")
 
     init_session()
+    require_registration()
 
     st.title("Phase 1: Independent Diagnosis")
 
@@ -37,7 +43,7 @@ def render_phase1_intro() -> None:
     st.markdown("### How Phase 1 works")
     st.markdown(
         """
-        1. Open a Phase 1 question page from the sidebar or click the button below.
+        1. Click the button below to begin the Phase 1 questions.
         2. Review the dermoscopic image shown on the page.
         3. Choose your diagnosis: `Benign` or `Melanoma`.
         4. Set your confidence level from 0% to 100%.
@@ -60,6 +66,7 @@ def render_phase1_question(question_number: int, total_questions: int = 8) -> No
     )
 
     init_session()
+    require_registration()
 
     st.markdown(
         f"### Phase 1 - Question {question_number}: Review the image and choose your diagnosis."
@@ -112,9 +119,15 @@ def render_phase1_question(question_number: int, total_questions: int = 8) -> No
         key=f"{question_key}_confidence_input",
     )
 
-    if st.button("Submit", type="primary", key=f"{question_key}_submit"):
+    submitted = already_submitted(question_key)
+    # `disabled` is presentation only -- a double click can still deliver a
+    # second event, which is how the duplicate rows in the collected data
+    # arose. The write path itself has to be idempotent.
+    if st.button("Submit", type="primary", key=f"{question_key}_submit",
+                 disabled=submitted) and not submitted:
         st.session_state[f"q{question_number}_answer"] = answer
         st.session_state[f"q{question_number}_confidence"] = confidence
+        mark_submitted(question_key)
 
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         response_time_seconds = get_response_time_seconds(timer_key, reset=True)
@@ -144,11 +157,14 @@ def render_phase1_question(question_number: int, total_questions: int = 8) -> No
             headers,
         )
 
+        submitted = True
+
+    if submitted:
         if question_number < total_questions:
-            st.success(
-                "Saved your answer. Use the sidebar to continue to the next Phase 1 question."
-            )
+            st.success("Saved your answer.")
         else:
-            st.success(
-                "Saved your answer. Phase 1 is complete. Use the sidebar to continue to Phase 2."
-            )
+            st.success("Saved your answer. Phase 1 is complete.")
+        render_next_button(
+            f"pages/{question_number}_question_{question_number}.py",
+            "Next question" if question_number < total_questions else "Continue to Phase 2",
+        )

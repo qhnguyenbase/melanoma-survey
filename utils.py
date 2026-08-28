@@ -67,10 +67,80 @@ def _hide_streamlit_top_right_controls() -> None:
         """
         <style>
         header [data-testid="stToolbar"] {display: none !important;}
+        /* The sidebar page list let participants jump to any phase, skip
+           earlier ones, or land mid-survey unregistered. The survey is a fixed
+           sequence, so navigation is driven by the Next buttons instead. */
+        [data-testid="stSidebarNav"] {display: none !important;}
+        [data-testid="stSidebarCollapseButton"] {display: none !important;}
         </style>
         """,
         unsafe_allow_html=True,
     )
+
+
+# The survey is a fixed linear sequence. Keeping it in one place lets each page
+# work out what comes next without hardcoding its neighbour.
+SURVEY_PAGES: list[str] = (
+    ["Home.py", "pages/00_Introduction.py", "pages/0_Phase_1.py"]
+    + [f"pages/{i}_question_{i}.py" for i in range(1, 9)]
+    + ["pages/9_Phase_2.py"]
+    + [f"pages/{9 + i}_Phase_2_Question_{i}.py" for i in range(1, 9)]
+    + ["pages/18_Phase_3.py"]
+    + [f"pages/{18 + i}_Phase_3_Question_{i}.py" for i in range(1, 9)]
+    + ["pages/27_Phase_4.py", "pages/36_Thank_You.py"]
+)
+
+
+def next_page(current: str) -> str | None:
+    """The page after `current` in the survey sequence, or None at the end."""
+    try:
+        index = SURVEY_PAGES.index(current)
+    except ValueError:
+        return None
+    return SURVEY_PAGES[index + 1] if index + 1 < len(SURVEY_PAGES) else None
+
+
+def require_registration() -> None:
+    """Send unregistered visitors back to the landing page.
+
+    Session state does not survive a browser refresh, so without this a
+    participant who reloads mid-survey carries on answering with no name or
+    email attached, producing rows that cannot be tied to anyone.
+    """
+    if st.session_state.get("name") and st.session_state.get("email"):
+        return
+
+    # Stop and offer a button rather than redirecting automatically: it tells the
+    # participant what happened, and cannot loop if the landing page is reached
+    # in an unexpected state.
+    st.warning(
+        "Your session has ended — this happens if the page was refreshed. "
+        "Please sign in again to continue. Answers you already submitted are "
+        "safely stored."
+    )
+    if st.button("Return to the start page", type="primary"):
+        st.switch_page("Home.py")
+    st.stop()
+
+
+def already_submitted(question_key: str) -> bool:
+    """True if this question was already saved in this session.
+
+    Guards against the double-submit seen in the collected data, where a second
+    click landed an identical row with a response time of ~0 seconds.
+    """
+    return question_key in st.session_state.setdefault("_submitted_questions", set())
+
+
+def mark_submitted(question_key: str) -> None:
+    st.session_state.setdefault("_submitted_questions", set()).add(question_key)
+
+
+def render_next_button(current_page: str, label: str = "Next") -> None:
+    """Advance control, replacing the hidden sidebar navigation."""
+    target = next_page(current_page)
+    if target and st.button(label, type="primary", use_container_width=True):
+        st.switch_page(target)
 
 
 def init_session():

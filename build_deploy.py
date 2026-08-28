@@ -47,7 +47,14 @@ __pycache__/
 
 # Without this, git on Windows normalises line endings inside the cached PDFs
 # and PNGs, corrupting them on checkout. The survey would then serve broken files.
-GITATTRIBUTES = """\n* -text
+# Python sources are pinned to LF as well: the repo previously held a mix of
+# endings, so an edit made on Windows rewrote whole files as line-ending churn
+# and buried the real diff.
+GITATTRIBUTES = """\
+* -text
+*.py text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
 *.pdf binary
 *.png binary
 *.bmp binary
