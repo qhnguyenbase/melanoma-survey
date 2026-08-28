@@ -76,7 +76,7 @@ def rebuild_phase4_json(rows: list[dict[str, str]]) -> list[dict]:
 def read_local(path: Path) -> tuple[list[str], list[dict[str, str]]]:
     if not path.is_file() or path.stat().st_size == 0:
         return [], []
-    with path.open(newline="", encoding="utf-8") as f:
+    with path.open(newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
         return list(reader.fieldnames or []), [dict(r) for r in reader]
 
@@ -93,7 +93,7 @@ def merge_rows(local: list[dict[str, str]], remote: list[dict[str, str]]) -> lis
 
 def write_csv(path: Path, headers: list[str], rows: list[dict[str, str]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", newline="", encoding="utf-8") as f:
+    with path.open("w", newline="", encoding="utf-8-sig") as f:
         writer = csv.DictWriter(f, fieldnames=headers, extrasaction="ignore")
         writer.writeheader()
         for row in rows:

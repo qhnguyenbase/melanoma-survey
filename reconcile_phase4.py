@@ -44,7 +44,7 @@ def load_participants() -> dict[str, dict[str, str]]:
     path = DATA_DIR / "participants.csv"
     if not path.is_file():
         return out
-    with path.open(newline="", encoding="utf-8") as f:
+    with path.open(newline="", encoding="utf-8-sig") as f:
         for row in csv.DictReader(f):
             email = (row.get("Email") or "").strip()
             if not email:
@@ -68,7 +68,7 @@ def emails_in_earlier_phases() -> set[str]:
         path = DATA_DIR / f"{phase}_responses.csv"
         if not path.is_file():
             continue
-        with path.open(newline="", encoding="utf-8") as f:
+        with path.open(newline="", encoding="utf-8-sig") as f:
             for row in csv.DictReader(f):
                 email = (row.get("Email") or "").strip().lower()
                 if email:
@@ -82,7 +82,7 @@ def load_flat() -> list[dict]:
     path = DATA_DIR / "phase4_responses_flat.csv"
     if not path.is_file():
         return []
-    with path.open(newline="", encoding="utf-8") as f:
+    with path.open(newline="", encoding="utf-8-sig") as f:
         return rebuild_phase4_json([dict(r) for r in csv.DictReader(f)])
 
 
@@ -97,7 +97,7 @@ def load_json() -> list[dict]:
 def write_flat(path: Path, records: list[dict]) -> None:
     headers = ["Timestamp", "Name", "Email"]
     headers += [f"{m}_{k}" for m in MODELS for k in METRICS]
-    with path.open("w", newline="", encoding="utf-8") as f:
+    with path.open("w", newline="", encoding="utf-8-sig") as f:
         writer = csv.DictWriter(f, fieldnames=headers)
         writer.writeheader()
         for rec in records:

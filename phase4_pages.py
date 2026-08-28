@@ -651,7 +651,10 @@ def _append_phase4_flat_csv_record(
 
     headers = _phase4_flat_score_headers()
     write_header = (not path.exists()) or path.stat().st_size == 0
-    with path.open("a", encoding="utf-8", newline="") as f:
+    # BOM on creation only, so Excel renders non-ASCII correctly; appending with
+    # utf-8-sig would inject a BOM mid-file. Mirrors save_to_csv in utils.py.
+    encoding = "utf-8-sig" if write_header else "utf-8"
+    with path.open("a", encoding=encoding, newline="") as f:
         writer = csv.DictWriter(f, fieldnames=headers)
         if write_header:
             writer.writeheader()

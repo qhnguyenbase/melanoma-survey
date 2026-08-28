@@ -119,13 +119,13 @@ def dedupe_comments(rows: list[dict]) -> tuple[list[dict], list[str]]:
 
 
 def read_csv(path: Path) -> tuple[list[str], list[dict]]:
-    with path.open(newline="", encoding="utf-8") as f:
+    with path.open(newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
         return list(reader.fieldnames or []), [dict(r) for r in reader]
 
 
 def write_csv(path: Path, headers: list[str], rows: list[dict]) -> None:
-    with path.open("w", newline="", encoding="utf-8") as f:
+    with path.open("w", newline="", encoding="utf-8-sig") as f:
         writer = csv.DictWriter(f, fieldnames=headers, extrasaction="ignore")
         writer.writeheader()
         writer.writerows(rows)

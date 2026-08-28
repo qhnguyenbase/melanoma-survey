@@ -29,26 +29,43 @@ def render_thank_you_page() -> None:
     )
 
     st.subheader("Optional Comment")
-    comment = st.text_area(
+    st.text_area(
         "Share any feedback about your experience:",
         key="final_comment",
         max_chars=2000,
         placeholder="Type your comment here...",
     )
 
-    if st.button("Submit Comment", type="secondary"):
-        cleaned_comment = comment.strip()
-        if not cleaned_comment:
-            st.warning("Please enter a comment before submitting.")
-        else:
-            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            row = [
-                timestamp,
-                st.session_state.get("name") or "",
-                st.session_state.get("email") or "",
-                cleaned_comment,
-            ]
-            headers = ["Timestamp", "Name", "Email", "Comment"]
-            save_to_csv(DATA_DIR / "comments.csv", row, headers)
-            st.success("Thanks! Your comment has been saved.")
-            st.session_state.final_comment = ""
+    # Saving runs as a button callback rather than inline. Streamlit refuses to
+    # let a widget's session_state key be reassigned once that widget has been
+    # instantiated in the current run, so clearing the box inline crashed the
+    # page after every successful submit. Callbacks run before the widgets are
+    # rebuilt, which is where the reset is allowed.
+    st.button("Submit Comment", type="secondary", on_click=_save_comment)
+
+    status = st.session_state.pop("comment_status", None)
+    if status:
+        level, message = status
+        getattr(st, level)(message)
+
+
+def _save_comment() -> None:
+    comment = str(st.session_state.get("final_comment", "")).strip()
+    if not comment:
+        st.session_state.comment_status = (
+            "warning",
+            "Please enter a comment before submitting.",
+        )
+        return
+
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    row = [
+        timestamp,
+        st.session_state.get("name") or "",
+        st.session_state.get("email") or "",
+        comment,
+    ]
+    headers = ["Timestamp", "Name", "Email", "Comment"]
+    save_to_csv(DATA_DIR / "comments.csv", row, headers)
+    st.session_state.comment_status = ("success", "Thanks! Your comment has been saved.")
+    st.session_state.final_comment = ""

@@ -1569,9 +1569,15 @@ def save_to_csv(filename, row, headers=None):
     """Append a row to a CSV file. Create file with headers if it doesn't exist."""
     filename = Path(filename)
     filename.parent.mkdir(parents=True, exist_ok=True)
-    file_exists = filename.is_file()
+    file_exists = filename.is_file() and filename.stat().st_size > 0
 
-    with filename.open("a", newline="", encoding="utf-8") as f:
+    # Write a UTF-8 BOM when creating the file, so Excel reads non-ASCII
+    # responses (Vietnamese diacritics, for instance) correctly instead of as
+    # mojibake. Only on creation: utf-8-sig in append mode would insert a BOM
+    # partway through the file and corrupt the row.
+    encoding = "utf-8-sig" if not file_exists else "utf-8"
+
+    with filename.open("a", newline="", encoding=encoding) as f:
         writer = csv.writer(f)
         if not file_exists and headers:
             writer.writerow(headers)

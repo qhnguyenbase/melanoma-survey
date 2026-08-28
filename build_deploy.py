@@ -114,6 +114,9 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dest", default=str(APP_DIR.parent / "survey_deploy"))
     parser.add_argument("--no-git", action="store_true", help="skip git init/commit")
+    parser.add_argument("--message", "-m",
+                        default="Melanoma explanation survey, precomputed build",
+                        help="commit message for this build")
     args = parser.parse_args()
 
     dest = Path(args.dest).resolve()
@@ -126,9 +129,17 @@ def main() -> int:
         print("No precomputed/manifest.json -- run `python precompute.py` first.")
         return 1
 
+    # Preserve an existing .git: once the repo has been pushed, wiping it would
+    # discard the origin remote and the history, turning every later update into
+    # a force-push. Clear only the working tree.
+    had_repo = (dest / ".git").is_dir()
     if dest.exists():
-        force_rmtree(dest)
-    dest.mkdir(parents=True)
+        for entry in dest.iterdir():
+            if entry.name == ".git":
+                continue
+            force_rmtree(entry) if entry.is_dir() else entry.unlink()
+    else:
+        dest.mkdir(parents=True)
 
     for name in MODULES:
         src = APP_DIR / name
@@ -159,18 +170,29 @@ def main() -> int:
 
     if not args.no_git:
         try:
-            subprocess.run(["git", "init", "-q"], cwd=dest, check=True)
+            if not had_repo:
+                subprocess.run(["git", "init", "-q"], cwd=dest, check=True)
             subprocess.run(["git", "add", "-A"], cwd=dest, check=True)
-            subprocess.run(
-                ["git", "commit", "-q", "-m",
-                 "Melanoma explanation survey, precomputed build"],
-                cwd=dest, check=True,
-            )
-            print("  git repo initialised and committed")
+            status = subprocess.run(["git", "status", "--porcelain"], cwd=dest,
+                                    capture_output=True, text=True).stdout.strip()
+            if not status:
+                print("  no changes to commit")
+            else:
+                subprocess.run(
+                    ["git", "commit", "-q", "-m", args.message], cwd=dest, check=True,
+                )
+                changed = len(status.splitlines())
+                print(f"  committed {changed} changed file(s)"
+                      + ("" if had_repo else " into a new repo"))
         except (subprocess.CalledProcessError, FileNotFoundError) as exc:
             print(f"  git step skipped: {exc}")
 
-    oversize = [f for f in dest.rglob("*") if f.is_file() and f.stat().st_size > 100 * 1024**2]
+    # GitHub's 100 MB cap applies to tracked files, not to git's own packfiles.
+    oversize = [
+        f for f in dest.rglob("*")
+        if f.is_file() and ".git" not in f.relative_to(dest).parts
+        and f.stat().st_size > 100 * 1024**2
+    ]
     if oversize:
         print("\nWARNING: files over GitHub's 100 MB limit:")
         for f in oversize:
