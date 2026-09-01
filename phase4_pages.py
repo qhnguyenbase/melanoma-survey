@@ -10,6 +10,7 @@ from typing import Any
 
 import streamlit as st
 
+import i18n
 from utils import (
     require_registration,
     append_to_sheet,
@@ -25,16 +26,23 @@ from utils import (
     use_phase2_prototree_defaults,
     use_phase2_weakly_supervised_defaults,
 )
+# English keys throughout: they match what the model cache produces, and are
+# translated for display by i18n.checklist_rows.
 CHECKLIST_TABLE_COLUMNS_BY_WIDTH: dict[int, list[str]] = {
     5: ["Attribute", "Prediction", "State", "Points", "Probability (%)"],
     6: ["Attribute", "Prediction", "State", "Points", "Probability (%)"],
 }
+# The four method names are proper nouns and stay untranslated: they also form
+# the column names in the results spreadsheet, and the intro text below glosses
+# each one in Vietnamese.
 PHASE4_MODELS: list[dict[str, str]] = [
     {"kind": "heatmap", "label": "Grad-CAM", "slug": "GradCAM"},
     {"kind": "prototree", "label": "ProtoTree", "slug": "ProtoTree"},
     {"kind": "clustering", "label": "Clustering", "slug": "Clustering"},
     {"kind": "weakly_supervised", "label": "Concept-Based", "slug": "MyModel"},
 ]
+# Metric keys and English labels are the storage contract -- they become the
+# CSV headers and the JSON keys. PHASE4_METRICS_VI holds what participants read.
 PHASE4_METRICS: list[tuple[str, str, str]] = [
     (
         "fidelity",
@@ -62,6 +70,28 @@ PHASE4_METRICS: list[tuple[str, str, str]] = [
         "How reliable and consistent does the explanation seem across similar cases?",
     ),
 ]
+PHASE4_METRICS_VI: dict[str, tuple[str, str]] = {
+    "fidelity": (
+        "Độ trung thực",
+        "Phần giải thích phản ánh sát đến mức nào cách mô hình đưa ra dự đoán?",
+    ),
+    "comprehensibility": (
+        "Mức độ dễ hiểu",
+        "Phần giải thích dễ hiểu đến mức nào?",
+    ),
+    "effectiveness": (
+        "Tính hiệu quả",
+        "Phần giải thích giúp ích đến mức nào cho quyết định chẩn đoán của Quý bác sĩ?",
+    ),
+    "usefulness": (
+        "Tính hữu ích",
+        "Phần giải thích phù hợp đến mức nào với cách lập luận của chính Quý bác sĩ?",
+    ),
+    "stability": (
+        "Tính ổn định",
+        "Phần giải thích có vẻ đáng tin cậy và nhất quán đến mức nào giữa các ca tương tự?",
+    ),
+}
 
 
 PHASE4_RESPONSES_FILE = DATA_DIR / "phase4_responses.json"
@@ -72,54 +102,54 @@ PHASE4_SAMPLE_SEED = 20260828
 
 
 def render_phase4_page() -> None:
-    st.set_page_config(page_title="Phase 4", page_icon="🧪", layout="centered")
+    st.set_page_config(page_title="Giai đoạn 4", page_icon="🧪", layout="centered")
 
     init_session()
     require_registration()
 
-    st.title("Phase 4: Explanation Comparison")
+    st.title("Giai đoạn 4: So sánh các cách giải thích")
 
     st.markdown(
         """
-        In Phase 4, you are asked to provide feedback on different types of AI explanations for melanoma detection. The workflow is as follows:
+        Ở Giai đoạn 4, Quý bác sĩ được mời nhận xét về các kiểu giải thích khác nhau của AI trong phát hiện u hắc tố ác tính. Quy trình như sau:
 
-        1. Select one dermoscopic image from the dropdown menu.
-        2. Open one explanation type at a time, you can test as many images as you want before scoring.
-        3. After reviewing each explanation, rate them on a scale of 1 to 10 based on 5 standards: fidelity, comprehensibility, effectiveness, usefulness, and stability.
-        4. Close it and move to the next explanation type.
-        5. Submit the evaluation after all four explanation types are scored.
+        1. Chọn một ảnh soi da từ danh sách thả xuống.
+        2. Mở lần lượt từng kiểu giải thích; Quý bác sĩ có thể thử bao nhiêu ảnh tùy ý trước khi chấm điểm.
+        3. Sau khi xem mỗi phần giải thích, hãy chấm điểm từ 1 đến 10 theo 5 tiêu chí: độ trung thực, mức độ dễ hiểu, tính hiệu quả, tính hữu ích và tính ổn định.
+        4. Đóng phần giải thích đó lại và chuyển sang kiểu tiếp theo.
+        5. Gửi đánh giá sau khi đã chấm đủ cả bốn kiểu giải thích.
 
-        NOTE: 
-        - There is a Full Screen button in the top-right corner of the explanation that you can use to expand the workspace, which is recommended for better viewing of the explanation results.
+        LƯU Ý:
+        - Ở góc trên bên phải của mỗi phần giải thích có nút Toàn màn hình (Full Screen) để mở rộng vùng xem; nên dùng nút này để quan sát kết quả giải thích rõ hơn.
         """
     )
 
-    st.markdown("### Explanation types")
+    st.markdown("### Các kiểu giải thích")
     st.markdown(
         """
-        Phase 4 compares these four explanation types for the same image:
+        Giai đoạn 4 so sánh bốn kiểu giải thích sau trên cùng một ảnh:
 
-        - `Grad-CAM`
-        - `ProtoTree`
-        - `Clustering`
-        - `Concept-Based`
+        - `Grad-CAM`: bản đồ nhiệt làm nổi bật vùng ảnh ảnh hưởng nhiều nhất đến dự đoán.
+        - `ProtoTree`: cây quyết định dựa trên mức độ giống nhau với các mẫu nguyên hình (prototype) học từ dữ liệu huấn luyện.
+        - `Clustering`: phân cụm, đối chiếu ca bệnh với nhóm các ca có đặc điểm tương tự.
+        - `Concept-Based`: dựa trên khái niệm, chấm điểm từng đặc điểm soi da theo bảng kiểm 7 điểm.
         """
     )
 
-    st.markdown("### Interpretability scores")
+    st.markdown("### Các tiêu chí đánh giá khả năng diễn giải")
     st.markdown(
         """
-        - `Fidelity`: how well the explanation reflects the actual reasoning used by the model to make its prediction.
-        - `Comprehensibility`: how easy it is for you to read, follow, and understand the explanation.
-        - `Effectiveness`: how much the explanation helps you make a diagnosis or affects your decision-making.
-        - `Usefulness`: how well the explanation matches your own reasoning process when you inspect the lesion.
-        - `Stability`: how reliable and consistent the explanation seems across similar cases or small changes in the input.
+        - `Độ trung thực`: phần giải thích phản ánh sát đến mức nào cách lập luận thực sự mà mô hình dùng để đưa ra dự đoán.
+        - `Mức độ dễ hiểu`: mức độ dễ đọc, dễ theo dõi và dễ hiểu của phần giải thích đối với Quý bác sĩ.
+        - `Tính hiệu quả`: phần giải thích giúp ích đến mức nào cho việc chẩn đoán, hay ảnh hưởng đến quyết định của Quý bác sĩ ra sao.
+        - `Tính hữu ích`: phần giải thích khớp đến mức nào với cách lập luận của chính Quý bác sĩ khi thăm khám tổn thương.
+        - `Tính ổn định`: phần giải thích có vẻ đáng tin cậy và nhất quán đến mức nào giữa các ca tương tự hoặc khi dữ liệu đầu vào thay đổi nhẹ.
         """
     )
 
-    st.markdown("### Phase 4 evaluation")
+    st.markdown("### Phần đánh giá của Giai đoạn 4")
     st.caption(
-        "Select one image, review its known label, open each explanation type, score it, then submit after all four are completed."
+        "Chọn một ảnh, xem nhãn đã biết của ảnh đó, mở từng kiểu giải thích, chấm điểm, rồi gửi đánh giá sau khi đã hoàn thành cả bốn kiểu."
     )
 
     question_key = "ph4_eval"
@@ -138,17 +168,16 @@ def render_phase4_page() -> None:
     )
     if not phase4_images:
         st.error(
-            "No Phase 4 images were found. Please add labeled images under "
-            "`app/images/phase_4/benign/` and `app/images/phase_4/melanoma/`."
+            "Không tìm thấy ảnh nào cho Giai đoạn 4. Vui lòng thông báo cho nhóm nghiên cứu."
         )
         st.stop()
 
     image_options = {
-        f"{item['name']} ({item['label']})": item
+        f"{item['name']} ({i18n.diagnosis(item['label'])})": item
         for item in phase4_images
     }
     selected_option = st.selectbox(
-        "Select image for explanation comparison",
+        "Chọn ảnh để so sánh các cách giải thích",
         options=list(image_options.keys()),
         key=f"{question_key}_image_select",
     )
@@ -167,10 +196,10 @@ def render_phase4_page() -> None:
 
     st.image(
         selected_image_path,
-        caption=f"Selected image: {selected_image_name}",
+        caption=f"Ảnh đã chọn: {selected_image_name}",
         use_container_width=True,
     )
-    st.caption(f"Known label: {selected_image_label}")
+    st.caption(f"Nhãn đã biết: {i18n.diagnosis(selected_image_label)}")
 
     flash_message = st.session_state.pop(flash_message_key, None)
     if flash_message:
@@ -178,18 +207,18 @@ def render_phase4_page() -> None:
 
     scored_models = _get_phase4_scores(question_key)
     st.markdown(
-        f"#### Progress: {len(scored_models)}/{len(PHASE4_MODELS)} explanation types scored"
+        f"#### Tiến độ: đã chấm {len(scored_models)}/{len(PHASE4_MODELS)} kiểu giải thích"
     )
     _render_phase4_status_row(scored_models)
 
-    st.markdown("#### Explanation buttons")
+    st.markdown("#### Các nút mở phần giải thích")
     button_cols = st.columns(len(PHASE4_MODELS))
     selected_kind: str | None = None
     for col, model in zip(button_cols, PHASE4_MODELS):
         with col:
             button_label = model["label"]
             if model["kind"] in scored_models:
-                button_label = f"{button_label} Saved"
+                button_label = f"{button_label} ✓"
             if st.button(
                 button_label,
                 key=f"{question_key}_{model['kind']}_open",
@@ -209,7 +238,7 @@ def render_phase4_page() -> None:
                 st.session_state[results_key] = result_cache
             st.session_state[active_kind_key] = selected_kind
         except Exception as exc:
-            st.error(f"{_model_label(selected_kind)} failed: {exc}")
+            st.error(f"{_model_label(selected_kind)} gặp lỗi: {exc}")
 
     active_kind = st.session_state.get(active_kind_key)
     active_result = _get_phase4_results(question_key).get(active_kind) if active_kind else None
@@ -217,9 +246,9 @@ def render_phase4_page() -> None:
         st.markdown("---")
         header_cols = st.columns([4, 1])
         with header_cols[0]:
-            st.markdown(f"#### {_model_label(active_kind)} explanation")
+            st.markdown(f"#### Phần giải thích của {_model_label(active_kind)}")
         with header_cols[1]:
-            if st.button("Close", key=f"{question_key}_close_active", use_container_width=True):
+            if st.button("Đóng", key=f"{question_key}_close_active", use_container_width=True):
                 st.session_state[active_kind_key] = None
                 st.rerun()
 
@@ -238,13 +267,13 @@ def render_phase4_page() -> None:
     ]
     if missing_models:
         st.info(
-            "Score all four explanation types before submitting this question: "
+            "Hãy chấm điểm đủ cả bốn kiểu giải thích trước khi gửi đánh giá. Còn thiếu: "
             + ", ".join(missing_models)
             + "."
         )
 
     if st.button(
-        "Submit interpretability evaluation",
+        "Gửi đánh giá khả năng diễn giải",
         type="primary",
         key=f"{question_key}_submit",
         disabled=bool(missing_models),
@@ -307,11 +336,11 @@ def _render_phase4_result(
     key_prefix: str,
 ) -> None:
     prediction = result.get("prediction") or "Unavailable"
-    st.success(f"{title} prediction: {prediction}")
+    st.success(f"Dự đoán của {title}: {i18n.diagnosis(prediction)}")
 
     prob_melanoma = result.get("prob_melanoma")
     if isinstance(prob_melanoma, (int, float)):
-        st.caption(f"Estimated melanoma risk: {float(prob_melanoma) * 100:.1f}%")
+        st.caption(f"Nguy cơ u hắc tố ác tính ước tính: {float(prob_melanoma) * 100:.1f}%")
 
     explanation_description = _phase4_explanation_description(kind)
     if explanation_description:
@@ -324,29 +353,29 @@ def _render_phase4_result(
     top_attribute_label = result.get("top_attribute_label")
     if top_attribute:
         detail = (
-            f"{top_attribute}: {top_attribute_label}"
+            f"{i18n.term(top_attribute)}: {i18n.term(top_attribute_label)}"
             if top_attribute_label
-            else str(top_attribute)
+            else i18n.term(top_attribute)
         )
-        st.caption(f"Key detail: {detail}")
+        st.caption(f"Chi tiết đáng chú ý: {detail}")
 
     explanation_note = result.get("explanation_note")
     if explanation_note:
-        st.info(str(explanation_note))
+        st.info(i18n.note(explanation_note))
 
     resolved_image_id = result.get("resolved_image_id")
     resolved_image_id_source = result.get("resolved_image_id_source")
     if resolved_image_id:
-        match_text = f"Matched image ID: {resolved_image_id}"
+        match_text = f"Mã ảnh khớp: {resolved_image_id}"
         if resolved_image_id_source:
-            match_text += f" ({resolved_image_id_source})"
+            match_text += f" ({i18n.id_source(resolved_image_id_source)})"
         st.caption(match_text)
 
     checklist_table = result.get("checklist_table")
     table_rows = _normalize_checklist_table_rows(checklist_table)
     if kind == "weakly_supervised" and table_rows:
-        st.markdown("##### Attribute scores")
-        st.dataframe(table_rows, hide_index=True, use_container_width=True)
+        st.markdown("##### Điểm của từng đặc điểm")
+        st.dataframe(i18n.checklist_rows(table_rows), hide_index=True, use_container_width=True)
 
     if kind == "clustering":
         _render_clustering_nearest_cases(result)
@@ -354,22 +383,22 @@ def _render_phase4_result(
     _render_phase4_explanation_preview(title=title, result=result)
 
     if kind != "weakly_supervised" and table_rows:
-        st.markdown("##### Attribute scores")
-        st.dataframe(table_rows, hide_index=True, use_container_width=True)
+        st.markdown("##### Điểm của từng đặc điểm")
+        st.dataframe(i18n.checklist_rows(table_rows), hide_index=True, use_container_width=True)
 
     explanation_pdf = result.get("explanation_pdf")
     if explanation_pdf:
         pdf_path = Path(explanation_pdf)
         if pdf_path.exists():
             st.download_button(
-                f"Download {title} PDF",
+                f"Tải PDF của {title}",
                 data=pdf_path.read_bytes(),
                 file_name=pdf_path.name,
                 mime="application/pdf",
                 key=f"{key_prefix}_download",
             )
             if result.get("show_pdf_inline"):
-                st.markdown("##### Explanation report")
+                st.markdown("##### Báo cáo giải thích")
                 render_pdf_in_ui(pdf_path, height=720)
 
 
@@ -395,7 +424,7 @@ def _render_clustering_nearest_cases(result: dict[str, Any]) -> None:
     if not valid_cases:
         return
 
-    st.markdown("##### 3 closest images in latent space")
+    st.markdown("##### 3 ảnh gần nhất trong không gian tiềm ẩn")
     cols = st.columns(len(valid_cases))
     for col, case in zip(cols, valid_cases):
         with col:
@@ -403,66 +432,65 @@ def _render_clustering_nearest_cases(result: dict[str, Any]) -> None:
             predicted_label = (
                 "Melanoma" if int(case.get("predicted_label", 0)) == 1 else "Non-melanoma"
             )
-            image_key = str(case.get("image_key", "")).strip() or "Unknown"
+            image_key = str(case.get("image_key", "")).strip() or "Không rõ"
             st.image(
                 str(case.get("image_path")),
                 caption=f"{image_key}",
                 use_container_width=True,
             )
-            st.caption(f"True: {true_label} | Pred: {predicted_label}")
+            st.caption(
+                f"Thực tế: {i18n.diagnosis(true_label)} | "
+                f"Dự đoán: {i18n.diagnosis(predicted_label)}"
+            )
 
 
 def _render_phase4_explanation_preview(title: str, result: dict[str, Any]) -> None:
     explanation_image_global = result.get("explanation_image_global")
     explanation_image_local = result.get("explanation_image_local")
     explanation_image = result.get("explanation_image")
-    global_preview_label = result.get("global_preview_label") or "global explanation"
-    local_preview_label = result.get("local_preview_label") or "local explanation"
+    global_preview_label = i18n.preview_label(
+        result.get("global_preview_label") or "global explanation"
+    )
+    local_preview_label = i18n.preview_label(
+        result.get("local_preview_label") or "local explanation"
+    )
     if explanation_image_global and explanation_image_local:
-        st.markdown("##### Explanation preview")
+        st.markdown("##### Xem trước phần giải thích")
         preview_cols = st.columns(2)
         with preview_cols[0]:
             st.image(
                 explanation_image_global,
-                caption=f"{title} {global_preview_label}",
+                caption=f"{title} - {global_preview_label}",
                 use_container_width=True,
             )
         with preview_cols[1]:
             st.image(
                 explanation_image_local,
-                caption=f"{title} {local_preview_label}",
+                caption=f"{title} - {local_preview_label}",
                 use_container_width=True,
             )
     elif explanation_image_global:
         st.image(
             explanation_image_global,
-            caption=f"{title} {global_preview_label}",
+            caption=f"{title} - {global_preview_label}",
             use_container_width=True,
         )
     elif explanation_image_local:
         st.image(
             explanation_image_local,
-            caption=f"{title} {local_preview_label}",
+            caption=f"{title} - {local_preview_label}",
             use_container_width=True,
         )
     elif explanation_image:
-        model_backend = str(result.get("model_backend") or "")
-        if model_backend == "phase2_clustering_cluster":
-            st.image(
-                explanation_image,
-                caption=f"{title} explanation preview",
-                use_container_width=True,
-            )
-        else:
-            st.image(
-                explanation_image,
-                caption=f"{title} explanation preview",
-                use_container_width=True,
-            )
+        st.image(
+            explanation_image,
+            caption=f"Xem trước phần giải thích của {title}",
+            use_container_width=True,
+        )
 
 
 def _render_phase4_scores_form(question_key: str, kind: str) -> None:
-    st.markdown("#### Interpretability scores")
+    st.markdown("#### Chấm điểm khả năng diễn giải")
 
     existing_scores = _get_phase4_scores(question_key).get(kind, {})
     for metric_key, _, _ in PHASE4_METRICS:
@@ -472,7 +500,8 @@ def _render_phase4_scores_form(question_key: str, kind: str) -> None:
 
     with st.form(key=f"{question_key}_{kind}_score_form"):
         ratings: dict[str, int] = {}
-        for metric_key, metric_label, metric_prompt in PHASE4_METRICS:
+        for metric_key, _, _ in PHASE4_METRICS:
+            metric_label, metric_prompt = PHASE4_METRICS_VI[metric_key]
             ratings[metric_key] = st.slider(
                 f"{metric_label}: {metric_prompt}",
                 min_value=1,
@@ -483,7 +512,7 @@ def _render_phase4_scores_form(question_key: str, kind: str) -> None:
             )
 
         saved = st.form_submit_button(
-            f"Save scores for {_model_label(kind)}",
+            f"Lưu điểm cho {_model_label(kind)}",
             type="primary",
         )
 
@@ -496,7 +525,7 @@ def _render_phase4_scores_form(question_key: str, kind: str) -> None:
             _save_phase4_state_for_image(question_key, image_token)
         st.session_state[f"{question_key}_active_kind"] = None
         st.session_state[f"{question_key}_flash_message"] = (
-            f"Saved scores for {_model_label(kind)}."
+            f"Đã lưu điểm cho {_model_label(kind)}."
         )
         st.rerun()
 
@@ -505,7 +534,7 @@ def _render_phase4_status_row(score_cache: dict[str, dict[str, int]]) -> None:
     status_cols = st.columns(len(PHASE4_MODELS))
     for col, model in zip(status_cols, PHASE4_MODELS):
         with col:
-            status = "Saved" if model["kind"] in score_cache else "Pending"
+            status = "Đã chấm" if model["kind"] in score_cache else "Chưa chấm"
             st.caption(f"{model['label']}: {status}")
 
 
@@ -556,21 +585,20 @@ def _model_label(kind: str | None) -> str:
 def _phase4_explanation_description(kind: str) -> str | None:
     descriptions = {
         "heatmap": (
-            "The region highlighted below represents the area that contributed most "
-            "to the model's decision."
+            "Vùng được làm nổi bật dưới đây là vùng đóng góp nhiều nhất vào "
+            "quyết định của mô hình."
         ),
         "clustering": (
-            "The model places the test image (star in the latent space) into a "
-            "cluster of training images with similar characteristics."
+            "Mô hình đặt ảnh cần kiểm tra (dấu sao trong không gian tiềm ẩn) vào "
+            "một cụm gồm các ảnh huấn luyện có đặc điểm tương tự."
         ),
         "prototree": (
-            "The prediction is based on the similarity between regions of the test "
-            "image and representative prototype patches learned from the training "
-            "dataset, with the decision guided by a decision tree."
+            "Dự đoán dựa trên mức độ giống nhau giữa các vùng của ảnh cần kiểm "
+            "tra và các mảnh nguyên hình (prototype) đại diện đã học từ tập dữ "
+            "liệu huấn luyện, với quyết định được dẫn dắt bởi một cây quyết định."
         ),
         "weakly_supervised": (
-            "The model suggests further assessment if the total dermoscopic score is "
-            "equal or greater than 3."
+            "Mô hình đề nghị đánh giá thêm nếu tổng điểm soi da từ 3 trở lên."
         ),
     }
     return descriptions.get(kind)

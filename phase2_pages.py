@@ -6,6 +6,7 @@ from typing import Any
 
 import streamlit as st
 
+import i18n
 from utils import (
     require_registration,
     already_submitted,
@@ -24,45 +25,45 @@ from utils import (
 
 
 def render_phase2_intro() -> None:
-    st.set_page_config(page_title="Phase 2", page_icon="🧪", layout="centered")
+    st.set_page_config(page_title="Giai đoạn 2", page_icon="🧪", layout="centered")
 
     init_session()
     require_registration()
 
-    st.title("Phase 2: AI-Assisted Diagnosis")
+    st.title("Giai đoạn 2: Chẩn đoán có hỗ trợ của AI")
 
     st.markdown(
         """
-        In Phase 2, each question follows the same workflow:
+        Ở Giai đoạn 2, mỗi câu hỏi đều theo cùng một quy trình:
 
-        1. Review the assigned dermoscopic image for that question.
-        2. Click **Run inference** to generate the AI prediction.
-        3. Review the AI prediction shown on the page.
-        4. Choose your diagnosis: `Benign` or `Melanoma`.
-        5. Set your confidence level from 0% to 100% and submit.
+        1. Xem ảnh soi da được gán cho câu hỏi đó.
+        2. Bấm **Chạy mô hình** để tạo dự đoán của AI.
+        3. Xem dự đoán của AI hiển thị trên trang.
+        4. Chọn chẩn đoán của Quý bác sĩ: `Lành tính` hoặc `U hắc tố ác tính (Melanoma)`.
+        5. Đặt mức độ tự tin từ 0% đến 100% rồi gửi câu trả lời.
         """
     )
 
-    st.markdown("### How to review the image and get a prediction")
+    st.markdown("### Cách xem ảnh và lấy dự đoán")
     st.markdown(
         """
-        1. Click the button below to begin the Phase 2 questions.
-        2. Review the image shown on the page for that question.
-        3. Click `Run inference`.
-        4. The app will run the melanoma prediction model on that question image.
-        5. The prediction will appear on the page as `Benign` or `Melanoma`, with an estimated melanoma risk when available.
-        6. After reviewing the prediction, choose your own diagnosis and confidence level, then click `Submit`.
+        1. Bấm nút bên dưới để bắt đầu các câu hỏi của Giai đoạn 2.
+        2. Xem ảnh hiển thị trên trang của câu hỏi đó.
+        3. Bấm `Chạy mô hình`.
+        4. Ứng dụng sẽ chạy mô hình dự đoán u hắc tố ác tính trên ảnh của câu hỏi đó.
+        5. Dự đoán sẽ hiện trên trang dưới dạng `Lành tính` hoặc `U hắc tố ác tính (Melanoma)`, kèm theo nguy cơ ước tính khi có.
+        6. Sau khi xem dự đoán, hãy chọn chẩn đoán và mức độ tự tin của chính Quý bác sĩ, rồi bấm `Gửi câu trả lời`.
         """
     )
-    st.caption("Phase 2 uses the fixed image set stored in `app/images/phase_2/`.")
+    st.caption("Giai đoạn 2 sử dụng bộ ảnh cố định được lưu trong `app/images/phase_2/`.")
 
-    if st.button("Go to Phase 2 Question 1", type="primary"):
+    if st.button("Đến câu hỏi 1 của Giai đoạn 2", type="primary"):
         st.switch_page("pages/10_Phase_2_Question_1.py")
 
 
 def render_phase2_question(question_number: int, total_questions: int = 8) -> None:
     st.set_page_config(
-        page_title=f"Phase 2 Question {question_number}",
+        page_title=f"Giai đoạn 2 - Câu {question_number}",
         page_icon="🧪",
         layout="centered",
     )
@@ -71,10 +72,10 @@ def render_phase2_question(question_number: int, total_questions: int = 8) -> No
     require_registration()
 
     st.markdown(
-        f"### Phase 2 - Question {question_number}: Review the image and the AI prediction."
+        f"### Giai đoạn 2 - Câu {question_number}: Xem ảnh và dự đoán của AI."
     )
     st.caption(
-        "Review the assigned Phase 2 image, run inference, then choose your diagnosis and confidence."
+        "Xem ảnh của Giai đoạn 2, chạy mô hình, sau đó chọn chẩn đoán và mức độ tự tin."
     )
 
     question_key = f"ph2_q{question_number}"
@@ -86,59 +87,62 @@ def render_phase2_question(question_number: int, total_questions: int = 8) -> No
 
     if not image_paths:
         st.error(
-            "No supported images found in `app/images/phase_2/`. Please add your dermoscopic images there."
+            "Không tìm thấy ảnh hợp lệ trong `app/images/phase_2/`. Vui lòng thông báo cho nhóm nghiên cứu."
         )
         st.stop()
 
     if len(image_paths) < question_number:
         st.error(
-            f"Not enough supported images found in `app/images/phase_2/` for Question {question_number}. "
-            f"Found {len(image_paths)}."
+            f"Không đủ ảnh hợp lệ trong `app/images/phase_2/` cho Câu {question_number}. "
+            f"Hiện có {len(image_paths)} ảnh."
         )
         st.stop()
 
     image_path = image_paths[question_number - 1]
     st.image(
         image_path,
-        caption=f"Question image: {Path(image_path).name}",
+        caption=f"Ảnh của câu hỏi: {Path(image_path).name}",
         use_container_width=True,
     )
 
     if st.button(
-        "Run inference",
+        "Chạy mô hình",
         type="primary",
         key=f"{question_key}_infer",
     ):
         use_phase2_model_defaults()
-        with st.spinner("Running inference..."):
+        with st.spinner("Đang chạy mô hình..."):
             try:
                 result = run_model(img_path=image_path, image_name=Path(image_path).name)
             except Exception as exc:
                 _clear_phase2_result(question_key)
-                st.error(f"Inference failed: {exc}")
+                st.error(f"Chạy mô hình thất bại: {exc}")
             else:
                 cleanup_result_artifacts(result)
                 st.session_state[result_key] = result
-                st.success("Inference complete.")
+                st.success("Đã chạy xong mô hình.")
 
     result = st.session_state.get(result_key)
     if result:
         _render_phase2_prediction(result)
     else:
-        st.warning("Run inference to view the AI prediction before submitting your answer.")
+        st.warning("Hãy chạy mô hình để xem dự đoán của AI trước khi gửi câu trả lời.")
 
+    # The stored value stays English so the results spreadsheet and the analysis
+    # scripts are unchanged by the translation; only the label is Vietnamese.
     answer = st.radio(
-        "Diagnosis",
+        "Chẩn đoán",
         ["Benign", "Melanoma"],
+        format_func=i18n.diagnosis,
         horizontal=True,
         label_visibility="collapsed",
         key=f"{question_key}_answer_input",
         disabled=result is None,
     )
 
-    st.markdown("#### Confidence level")
+    st.markdown("#### Mức độ tự tin")
     confidence = st.slider(
-        "How confident are you in your answer? (0% = not confident, 100% = very confident)",
+        "Quý bác sĩ tự tin đến mức nào về câu trả lời của mình? (0% = không tự tin, 100% = rất tự tin)",
         min_value=0,
         max_value=100,
         value=50,
@@ -152,7 +156,7 @@ def render_phase2_question(question_number: int, total_questions: int = 8) -> No
     # second event, which is how the duplicate rows in the collected data
     # arose. The write path itself has to be idempotent.
     if st.button(
-        "Submit",
+        "Gửi câu trả lời",
         type="primary",
         key=f"{question_key}_submit",
         disabled=result is None or submitted,
@@ -198,24 +202,24 @@ def render_phase2_question(question_number: int, total_questions: int = 8) -> No
 
     if submitted:
         if question_number < total_questions:
-            st.success("Saved your answer.")
+            st.success("Đã lưu câu trả lời của Quý bác sĩ.")
         else:
-            st.success("Saved your answer. Phase 2 is complete.")
+            st.success("Đã lưu câu trả lời. Giai đoạn 2 đã hoàn tất.")
         render_next_button(
             f"pages/{9 + question_number}_Phase_2_Question_{question_number}.py",
-            "Next question" if question_number < total_questions else "Continue to Phase 3",
+            "Câu hỏi tiếp theo" if question_number < total_questions else "Tiếp tục sang Giai đoạn 3",
         )
 
 
 def _render_phase2_prediction(result: dict[str, Any]) -> None:
-    st.markdown("#### AI prediction")
+    st.markdown("#### Dự đoán của AI")
 
     prediction = result.get("prediction") or "Unavailable"
-    st.success(f"Prediction: {prediction}")
+    st.success(f"Dự đoán: {i18n.diagnosis(prediction)}")
 
     prob_melanoma = result.get("prob_melanoma")
     if isinstance(prob_melanoma, (int, float)):
-        st.caption(f"Estimated melanoma risk: {float(prob_melanoma) * 100:.1f}%")
+        st.caption(f"Nguy cơ u hắc tố ác tính ước tính: {float(prob_melanoma) * 100:.1f}%")
 
 
 def _clear_phase2_result(question_key: str) -> None:

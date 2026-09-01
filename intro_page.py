@@ -6,7 +6,7 @@ from utils import init_session, require_registration
 
 
 def render_intro_page() -> None:
-    st.set_page_config(page_title="Introduction", page_icon="🩺", layout="centered")
+    st.set_page_config(page_title="Giới thiệu", page_icon="🩺", layout="centered")
 
     init_session()
     require_registration()
@@ -14,47 +14,47 @@ def render_intro_page() -> None:
     name = st.session_state.get("name")
     email = st.session_state.get("email")
     if not name or not email:
-        st.warning("Please complete the Home page registration before starting the survey.")
-        if st.button("Go to Home", type="primary"):
+        st.warning("Vui lòng hoàn tất phần đăng ký ở trang chủ trước khi bắt đầu khảo sát.")
+        if st.button("Về trang chủ", type="primary"):
             st.switch_page("Home.py")
         return
 
-    st.title("Survey Introduction")
+    st.title("Giới thiệu khảo sát")
 
     st.markdown(
         f"""
-        Welcome, {name}.
+        Xin chào, {name}.
 
-        This survey has four phases and is designed to evaluate how AI support and AI explanations influence melanoma-related decision making.
+        Khảo sát này gồm bốn giai đoạn, nhằm đánh giá ảnh hưởng của hỗ trợ từ AI và của các phần giải thích do AI đưa ra đối với quyết định chẩn đoán u hắc tố ác tính (melanoma).
         """
     )
 
-    st.markdown("### Survey structure")
+    st.markdown("### Cấu trúc khảo sát")
     st.markdown(
         """
-        **Phase 1: No AI support**  
-        You review dermoscopic images without any AI assistance and provide your diagnosis and confidence.
+        **Giai đoạn 1: Không có hỗ trợ của AI**  
+        Quý bác sĩ xem ảnh soi da (dermoscopy) mà không có bất kỳ hỗ trợ nào từ AI, sau đó đưa ra chẩn đoán và mức độ tự tin của mình.
 
-        **Phase 2: AI prediction without model reasoning**  
-        You upload an image, review the model prediction only, and then provide your diagnosis and confidence.
+        **Giai đoạn 2: Có dự đoán của AI, không có giải thích**  
+        Quý bác sĩ xem ảnh, xem dự đoán của mô hình (không kèm giải thích), sau đó đưa ra chẩn đoán và mức độ tự tin của mình.
 
-        **Phase 3: AI prediction with model explanation**  
-        You upload an image, review the model prediction together with its explanation, and then provide your diagnosis and confidence.
+        **Giai đoạn 3: Có dự đoán của AI kèm phần giải thích**  
+        Quý bác sĩ xem ảnh, xem dự đoán của mô hình cùng với phần giải thích, sau đó đưa ra chẩn đoán và mức độ tự tin của mình.
 
-        **Phase 4: Evaluation of interpretability**  
-        You evaluate the interpretability of different explanation methods, including Grad-CAM, LIME, ProtoTree, Clustering, and the weakly supervised model.
+        **Giai đoạn 4: Đánh giá khả năng diễn giải**  
+        Quý bác sĩ đánh giá khả năng diễn giải của các phương pháp giải thích khác nhau, gồm Grad-CAM, ProtoTree, Clustering (phân cụm) và mô hình dựa trên khái niệm (Concept-Based).
         """
     )
 
-    st.markdown("### Before you begin")
+    st.markdown("### Trước khi bắt đầu")
     st.markdown(
         """
-        - Use the buttons at the bottom of each page to move through the survey.
-        - Complete each phase in order.
-        - For diagnosis questions, answer based on your own judgment.
-        - For Phase 4, score each explanation type before submitting the final evaluation.
+        - Dùng các nút ở cuối mỗi trang để di chuyển trong khảo sát.
+        - Hoàn thành các giai đoạn theo đúng thứ tự.
+        - Với các câu hỏi chẩn đoán, xin trả lời theo nhận định của chính Quý bác sĩ.
+        - Ở Giai đoạn 4, hãy chấm điểm từng loại giải thích trước khi gửi đánh giá cuối cùng.
         """
     )
 
-    if st.button("Start Phase 1", type="primary"):
+    if st.button("Bắt đầu Giai đoạn 1", type="primary"):
         st.switch_page("pages/0_Phase_1.py")

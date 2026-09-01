@@ -114,11 +114,11 @@ def require_registration() -> None:
     # participant what happened, and cannot loop if the landing page is reached
     # in an unexpected state.
     st.warning(
-        "Your session has ended — this happens if the page was refreshed. "
-        "Please sign in again to continue. Answers you already submitted are "
-        "safely stored."
+        "Phiên làm việc của Quý bác sĩ đã kết thúc — điều này xảy ra khi trang "
+        "được tải lại. Vui lòng đăng nhập lại để tiếp tục. Các câu trả lời đã "
+        "gửi trước đó vẫn được lưu an toàn."
     )
-    if st.button("Return to the start page", type="primary"):
+    if st.button("Quay lại trang đầu", type="primary"):
         st.switch_page("Home.py")
     st.stop()
 
@@ -136,7 +136,7 @@ def mark_submitted(question_key: str) -> None:
     st.session_state.setdefault("_submitted_questions", set()).add(question_key)
 
 
-def render_next_button(current_page: str, label: str = "Next") -> None:
+def render_next_button(current_page: str, label: str = "Tiếp tục") -> None:
     """Advance control, replacing the hidden sidebar navigation."""
     target = next_page(current_page)
     if target and st.button(label, type="primary", use_container_width=True):
@@ -1593,13 +1593,13 @@ def cleanup_result_cache(results: Any) -> None:
 
 def render_phase2_explanation_ratings(key_prefix: str) -> dict[str, int]:
     """Render five explainability ratings (1-10 stars each) and return values."""
-    st.markdown("### Explanation evaluation")
-    st.caption("Rate each dimension from 1 to 10 stars (10 = highest).")
+    st.markdown("### Đánh giá phần giải thích")
+    st.caption("Chấm mỗi tiêu chí từ 1 đến 10 sao (10 = cao nhất).")
 
     ratings: dict[str, int] = {}
     for metric_key, metric_label, metric_prompt in PHASE2_EXPLANATION_METRICS:
         ratings[metric_key] = st.slider(
-            f"{metric_label} (1-10 stars)",
+            f"{metric_label} (1-10 sao)",
             min_value=1,
             max_value=10,
             value=5,
@@ -1622,7 +1622,7 @@ def render_pdf_in_ui(pdf_path: str | Path, height: int = 900) -> None:
     """Embed a PDF in Streamlit as an iframe."""
     p = Path(pdf_path)
     if not p.exists():
-        st.warning(f"PDF not found: {p}")
+        st.warning(f"Không tìm thấy tệp PDF: {p}")
         return
     b64 = base64.b64encode(p.read_bytes()).decode("utf-8")
     html(
@@ -1790,9 +1790,9 @@ def append_to_sheet(row, worksheet_name: str = "participants", headers=None) -> 
         # Silently returning here would let the app report "saved" while the
         # row goes only to a disk that is wiped on the next restart.
         st.error(
-            "This response was NOT saved to permanent storage: the survey has no "
-            "Google Sheets credentials configured. Please tell the researcher "
-            "before continuing -- your answers will otherwise be lost."
+            "Câu trả lời này KHÔNG được lưu vào bộ nhớ vĩnh viễn: khảo sát chưa "
+            "được cấu hình thông tin đăng nhập Google Sheets. Vui lòng báo cho "
+            "nhóm nghiên cứu trước khi tiếp tục, nếu không các câu trả lời sẽ bị mất."
         )
         return False
     try:
@@ -1802,8 +1802,9 @@ def append_to_sheet(row, worksheet_name: str = "participants", headers=None) -> 
         return True
     except Exception as exc:
         st.error(
-            f"Could not save your response to the results spreadsheet: {exc}. "
-            "Please screenshot this and contact the researcher before continuing."
+            f"Không thể lưu câu trả lời của Quý bác sĩ vào bảng kết quả: {exc}. "
+            "Vui lòng chụp màn hình thông báo này và liên hệ nhóm nghiên cứu "
+            "trước khi tiếp tục."
         )
         return False
 
