@@ -20,7 +20,15 @@ from typing import Any
 import streamlit as st
 from streamlit.components.v1 import html
 
+import i18n
+import pdf_fonts
 import precomputed_backend
+
+# The explanation reports are written in Vietnamese, which reportlab's built-in
+# Helvetica cannot render. Registering the Unicode face here covers every PDF
+# the live-inference path produces, in this process and in the vendor modules it
+# imports. (ProtoTree runs as a subprocess and draws through Graphviz instead.)
+pdf_fonts.install()
 
 APP_DIR = Path(__file__).resolve().parent
 DATA_DIR = APP_DIR / "data"
@@ -29,6 +37,12 @@ VIDEOS_DIR = APP_DIR / "videos"
 OUTPUTS_DIR = APP_DIR / "outputs"
 VENDOR_DIR = APP_DIR / "vendor"
 LOCAL_PH2_ROOT = APP_DIR / "datasets" / "PH2_dataset"
+
+# Leaf labels drawn in the ProtoTree diagrams. Kept short: they sit under the
+# leaf thumbnails in a Graphviz-rendered tree with no room to wrap. Order in the
+# --class_names argument is benign first, matching the trained class indices.
+PROTOTREE_BENIGN_LABEL = "Lành tính"
+PROTOTREE_MELANOMA_LABEL = "U hắc tố ác tính"
 
 PHASE2_EXPLANATION_METRICS: list[tuple[str, str, str]] = [
     (
@@ -493,15 +507,15 @@ def _run_model_multiweakly(img_path: str, model_dir: Path) -> dict[str, Any]:
     checklist_total = int(sum(points_by_attr.values()))
     checklist_says_high = checklist_total >= checklist_threshold
     high_risk = (p_mel >= risk_threshold) or checklist_says_high
-    clue_attrs = [pretty_attr_name(a) for a in ATTR_NAMES if points_by_attr[a] > 0]
+    clue_attrs = [i18n.attribute(pretty_attr_name(a)) for a in ATTR_NAMES if points_by_attr[a] > 0]
     risk_pct = p_mel * 100.0
 
     if high_risk:
-        line1 = f"Further examination is recommended (estimated melanoma risk: {risk_pct:.1f}%)."
-        line2 = "High risk based on the following clues: " + (", ".join(clue_attrs) + "." if clue_attrs else "dermoscopic clues.")
+        line1 = f"Đề nghị đánh giá thêm (nguy cơ u hắc tố ác tính ước tính: {risk_pct:.1f}%)."
+        line2 = "Nguy cơ cao dựa trên các dấu hiệu sau: " + (", ".join(clue_attrs) + "." if clue_attrs else "các dấu hiệu soi da.")
     else:
-        line1 = f"No further examination needed (estimated melanoma risk: {risk_pct:.1f}%)."
-        line2 = "Low risk of melanoma; no further examination is needed."
+        line1 = f"Chưa cần đánh giá thêm (nguy cơ u hắc tố ác tính ước tính: {risk_pct:.1f}%)."
+        line2 = "Nguy cơ u hắc tố ác tính thấp; chưa cần đánh giá thêm."
 
     table_data = [["Attribute", "Prediction", "State", "Points", "Probability (%)"]]
     for i, a in enumerate(ATTR_NAMES):
@@ -570,7 +584,7 @@ def _run_model_multiweakly(img_path: str, model_dir: Path) -> dict[str, Any]:
             thumbs.append(
                 {
                     "idx": clue_idx,
-                    "attr": pretty_attr_name(attr_name),
+                    "attr": i18n.attribute_short(pretty_attr_name(attr_name)),
                     "points": pts,
                     "prob_pct": float(p_crit[attr_idx] * 100.0),
                     "thumb_pil": thumb_crop,
@@ -587,10 +601,13 @@ def _run_model_multiweakly(img_path: str, model_dir: Path) -> dict[str, Any]:
     c = canvas.Canvas(str(out_pdf_path), pagesize=A4)
     save_pdf_page1_with_grid_table(
         c,
-        title="Risk Summary (7-point checklist)",
+        title="Tóm tắt nguy cơ (bảng kiểm 7 điểm)",
         line1=line1,
         line2=line2,
-        table_data=table_data,
+        # The PDF is read by participants, so it is localized here. table_data
+        # itself stays English: it goes into the result dict and on into the
+        # precomputed manifest, which the analysis scripts read.
+        table_data=i18n.pdf_table(table_data),
     )
     c.showPage()
     save_pdf_page2_image_with_thumbnails(
@@ -1359,14 +1376,27 @@ def _run_model_clustering(img_path: str, image_name: str | None) -> dict[str, An
     }
 
 
+# The leaf label drawn in the ProtoTree diagram is Vietnamese, but the
+# prediction this function returns feeds the manifest and the results
+# spreadsheet, so it is mapped back to the English value. English leaf labels
+# are still recognised, for dot files produced before the translation.
+PROTOTREE_LEAF_LABELS: dict[str, str] = {
+    PROTOTREE_MELANOMA_LABEL.lower(): "Melanoma",
+    PROTOTREE_BENIGN_LABEL.lower(): "Benign",
+    "melanoma": "Melanoma",
+    "benign": "Benign",
+}
+
+
 def _parse_prototree_prediction(dot_path: Path) -> str | None:
     if not dot_path.exists():
         return None
     text = dot_path.read_text(encoding="utf-8", errors="ignore")
-    labels = re.findall(r'label="(melanoma|benign)"', text, flags=re.IGNORECASE)
+    alternatives = "|".join(re.escape(name) for name in PROTOTREE_LEAF_LABELS)
+    labels = re.findall(rf'label="({alternatives})"', text, flags=re.IGNORECASE)
     if not labels:
         return None
-    return "Melanoma" if labels[-1].lower() == "melanoma" else "Benign"
+    return PROTOTREE_LEAF_LABELS[labels[-1].lower()]
 
 
 def _run_model_prototree(img_path: str, image_name: str | None) -> dict[str, Any]:
@@ -1404,7 +1434,7 @@ def _run_model_prototree(img_path: str, image_name: str | None) -> dict[str, Any
 
     class_names_raw = os.environ.get(
         "PHASE2_PROTOTREE_CLASS_NAMES",
-        "benign,melanoma",
+        f"{PROTOTREE_BENIGN_LABEL},{PROTOTREE_MELANOMA_LABEL}",
     )
     class_names = [
         part.strip()

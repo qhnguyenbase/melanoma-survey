@@ -36,6 +36,21 @@ ATTRIBUTES: dict[str, str] = {
     "assigned cluster": "Cụm được gán",
 }
 
+# Same attributes without the English gloss, for the generated PDFs: the table
+# column there is a fixed 130pt and the clue captions are truncated at 36
+# characters, so the long form would overflow or be cut mid-word.
+ATTRIBUTES_SHORT: dict[str, str] = {
+    "pigment network": "Mạng lưới sắc tố",
+    "streaks": "Vệt sắc tố",
+    "pigmentation": "Vùng tăng sắc tố",
+    "regression structures": "Cấu trúc thoái triển",
+    "dots and globules": "Chấm và cầu sắc tố",
+    "blue whitish veil": "Màn xanh trắng",
+    "vascular structures": "Cấu trúc mạch máu",
+    "total dermoscopic score": "Tổng điểm soi da",
+    "assigned cluster": "Cụm được gán",
+}
+
 # Attribute states as the weakly supervised model reports them.
 STATES: dict[str, str] = {
     "absent": "không có",
@@ -99,6 +114,11 @@ def attribute(value: Any) -> str:
     return _lookup(ATTRIBUTES, value)
 
 
+def attribute_short(value: Any) -> str:
+    """Vietnamese attribute name without the English gloss, for tight layouts."""
+    return _lookup(ATTRIBUTES_SHORT, value)
+
+
 def state(value: Any) -> str:
     return _lookup(STATES, value)
 
@@ -123,6 +143,23 @@ def term(value: Any) -> str:
         if key in table:
             return table[key]
     return text
+
+
+def pdf_table(table_data: list[list[Any]]) -> list[list[Any]]:
+    """Localize a header-row-plus-body table for a generated PDF.
+
+    Row 0 is translated as column headers, the rest as attribute names and
+    states, using the short attribute form so the fixed column widths hold.
+    """
+    if not table_data:
+        return table_data
+
+    header = [COLUMNS.get(str(cell), str(cell)) for cell in table_data[0]]
+    body = [
+        [attribute_short(cell) if index == 0 else state(cell) for index, cell in enumerate(row)]
+        for row in table_data[1:]
+    ]
+    return [header, *body]
 
 
 def checklist_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:

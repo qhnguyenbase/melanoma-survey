@@ -109,6 +109,37 @@ participants hit images with no cached explanation.
 `--kinds prototree` for one backend. Reruns are safe: finished work is skipped
 and stale artifacts are cleared.
 
+**Language.** The survey runs in Vietnamese. It sits in three places:
+
+- *Page copy* — written directly into `Home.py`, `intro_page.py`,
+  `phase{1,2,3,4}_pages.py` and `thank_you_page.py`.
+- *Values that come out of the model cache* (`Benign`/`Melanoma`, the 7-point
+  checklist attributes and states, the clustering note) — translated for display
+  only, by `i18n.py`. **What is saved stays English**: the diagnosis written to
+  Sheets, the `checklist_table` in `precomputed/manifest.json` and every CSV
+  column name are unchanged, so `fetch_responses.py`, `reconcile_phase4.py` and
+  `dedupe_responses.py` keep working and results stay comparable with the
+  English-language run.
+- *Text drawn inside the explanation figures and PDFs* — hardcoded in the model
+  code under `vendor/` (`heatmap_explain/resnet_model.py`,
+  `clustering/cluster.py`, `ProtoTree/util/visualize*.py`,
+  `weakly_supervised_prototype/src/infer.py`) and in the weakly supervised PDF
+  built by `utils.py`. Changing any of these needs `precompute.py --force`
+  afterwards; the wording is baked into the cached artifacts.
+
+Two font details make the diacritics render. reportlab's built-in Helvetica is
+Latin-1, so `pdf_fonts.install()` re-registers a Unicode face under that name
+before any PDF is drawn — `precompute.py` and `utils.py` both call it. Graphviz
+draws the ProtoTree diagrams instead, so those `.dot` files are written as UTF-8
+and ask for Arial rather than Helvetica.
+
+Page 1 of every ProtoTree PDF is the static
+`runs/prototree_ph2_depth3/pruned_and_projected/treevis.pdf`, produced at
+training time and merged in front of the per-image page. It is not rebuilt by
+inference: to relabel it, edit `treevis.dot` beside it and re-render with
+`dot -Tpdf -Gmargin=0 <dot> -o <pdf>` from the `vendor/ProtoTree` directory. The
+English originals are kept next to it as `treevis.dot.en.bak` / `treevis.pdf.en.bak`.
+
 ---
 
 ## Getting responses back into `data/`

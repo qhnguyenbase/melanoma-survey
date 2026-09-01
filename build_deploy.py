@@ -22,7 +22,8 @@ sys.path.insert(0, str(APP_DIR))
 
 # Files the running survey imports.
 MODULES = [
-    "Home.py", "intro_page.py", "utils.py", "precomputed_backend.py", "i18n.py",
+    "Home.py", "intro_page.py", "utils.py", "precomputed_backend.py",
+    "i18n.py", "pdf_fonts.py",
     "phase1_pages.py", "phase2_pages.py", "phase3_pages.py", "phase4_pages.py",
     "thank_you_page.py", "precompute.py", "build_deploy.py", "fetch_responses.py", "reconcile_phase4.py", "dedupe_responses.py", "make_secrets.py",
     "requirements.txt", "requirements-dev.txt",
