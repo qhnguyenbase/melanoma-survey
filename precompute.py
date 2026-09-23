@@ -30,8 +30,8 @@ sys.path.insert(0, str(APP_DIR))
 import os
 os.environ["SURVEY_LIVE_INFERENCE"] = "1"
 
-# Vietnamese explanation reports need a Unicode font in reportlab; install it
-# before any vendor module builds a canvas.
+# reportlab falls back to Latin-1 Helvetica without this; install the Unicode
+# face before any vendor module builds a canvas.
 import pdf_fonts
 pdf_fonts.install()
 

@@ -24,7 +24,7 @@ from utils import (
     use_phase3_model_defaults,
 )
 # English keys throughout: they match what the model cache produces, and are
-# translated for display by i18n.checklist_rows.
+# formatted for display by i18n.checklist_rows.
 CHECKLIST_TABLE_COLUMNS_BY_WIDTH: dict[int, list[str]] = {
     5: ["Attribute", "Prediction", "State", "Points", "Probability (%)"],
     6: ["Attribute", "Prediction", "State", "Points", "Attr score", "Probability (%)"],
@@ -32,53 +32,53 @@ CHECKLIST_TABLE_COLUMNS_BY_WIDTH: dict[int, list[str]] = {
 
 
 def render_phase3_intro() -> None:
-    st.set_page_config(page_title="Giai đoạn 3", page_icon="🧪", layout="centered")
+    st.set_page_config(page_title="Phase 3", page_icon="🧪", layout="centered")
 
     init_session()
     require_registration()
 
-    st.title("Giai đoạn 3: Dự đoán của AI kèm giải thích dạng PDF")
+    st.title("Phase 3: AI Prediction with PDF Explanation")
 
     st.markdown(
         """
-        Ở Giai đoạn 3, mỗi câu hỏi đều theo quy trình sau:
+        In Phase 3, each question follows the same workflow:
 
-        1. Xem ảnh soi da được gán cho câu hỏi đó.
-        2. Bấm **Chạy mô hình**.
-        3. Xem dự đoán của AI và bản giải thích dạng PDF do mô hình tạo ra.
-        4. Chọn chẩn đoán của Quý bác sĩ: `Lành tính` hoặc `U hắc tố ác tính (Melanoma)`.
-        5. Đặt mức độ tự tin từ 0% đến 100% rồi gửi câu trả lời.
+        1. Review the assigned dermoscopic image for that question.
+        2. Click **Run inference**.
+        3. Review the AI prediction and the PDF explanation the model generates.
+        4. Choose your diagnosis: `Benign` or `Melanoma`.
+        5. Set your confidence level from 0% to 100% and submit.
         """
     )
 
-    st.markdown("### Cách xem ảnh và phần giải thích")
+    st.markdown("### How to review the image and the explanation")
     st.markdown(
         """
-        1. Bấm nút bên dưới để bắt đầu các câu hỏi của Giai đoạn 3.
-        2. Xem ảnh hiển thị trên trang của câu hỏi đó.
-        3. Bấm `Chạy mô hình`.
-        4. Ứng dụng sẽ chạy mô hình trên ảnh của câu hỏi đó và tạo ra dự đoán kèm bản giải thích dạng PDF.
-        5. Hãy xem kỹ dự đoán và bản giải thích PDF hiển thị trên trang trước khi gửi câu trả lời.
+        1. Click the button below to begin the Phase 3 questions.
+        2. Review the image shown on the page for that question.
+        3. Click `Run inference`.
+        4. The app will run the model on that question image and produce a prediction together with a PDF explanation.
+        5. Review the prediction and the PDF explanation shown on the page before submitting your answer.
         """
     )
-    st.caption("Giai đoạn 3 sử dụng bộ ảnh cố định được lưu trong `app/images/phase_3/`.")
+    st.caption("Phase 3 uses the fixed image set stored in `app/images/phase_3/`.")
 
-    st.markdown("### Những điểm giữ nguyên như trước")
+    st.markdown("### What stays the same")
     st.markdown(
         """
-        - 8 câu hỏi
-        - 2 lựa chọn chẩn đoán: `Lành tính` và `U hắc tố ác tính (Melanoma)`
-        - Thanh trượt mức độ tự tin từ 0% đến 100%
+        - 8 questions
+        - 2 diagnosis options: `Benign` and `Melanoma`
+        - A confidence slider from 0% to 100%
         """
     )
 
-    if st.button("Đến câu hỏi 1 của Giai đoạn 3", type="primary"):
+    if st.button("Go to Phase 3 Question 1", type="primary"):
         st.switch_page("pages/19_Phase_3_Question_1.py")
 
 
 def render_phase3_question(question_number: int, total_questions: int = 8) -> None:
     st.set_page_config(
-        page_title=f"Giai đoạn 3 - Câu {question_number}",
+        page_title=f"Phase 3 - Question {question_number}",
         page_icon="🧪",
         layout="centered",
     )
@@ -87,10 +87,10 @@ def render_phase3_question(question_number: int, total_questions: int = 8) -> No
     require_registration()
 
     st.markdown(
-        f"### Giai đoạn 3 - Câu {question_number}: Xem ảnh, dự đoán và bản giải thích PDF."
+        f"### Phase 3 - Question {question_number}: Review the image, the prediction and the PDF explanation."
     )
     st.caption(
-        "Xem ảnh của Giai đoạn 3, chạy mô hình, xem bản giải thích PDF, sau đó chọn chẩn đoán và mức độ tự tin."
+        "Review the assigned Phase 3 image, run inference, review the PDF explanation, then choose your diagnosis and confidence."
     )
 
     question_key = f"ph3_q{question_number}"
@@ -102,50 +102,50 @@ def render_phase3_question(question_number: int, total_questions: int = 8) -> No
 
     if not image_paths:
         st.error(
-            "Không tìm thấy ảnh hợp lệ trong `app/images/phase_3/`. Vui lòng thông báo cho nhóm nghiên cứu."
+            "No supported images found in `app/images/phase_3/`. Please notify the research team."
         )
         st.stop()
 
     if len(image_paths) < question_number:
         st.error(
-            f"Không đủ ảnh hợp lệ trong `app/images/phase_3/` cho Câu {question_number}. "
-            f"Hiện có {len(image_paths)} ảnh."
+            f"Not enough supported images found in `app/images/phase_3/` for Question {question_number}. "
+            f"Found {len(image_paths)}."
         )
         st.stop()
 
     image_path = image_paths[question_number - 1]
     st.image(
         image_path,
-        caption=f"Ảnh của câu hỏi: {Path(image_path).name}",
+        caption=f"Question image: {Path(image_path).name}",
         use_container_width=True,
     )
 
     if st.button(
-        "Chạy mô hình",
+        "Run inference",
         type="primary",
         key=f"{question_key}_infer",
     ):
         use_phase3_model_defaults()
-        with st.spinner("Đang chạy mô hình và tạo bản giải thích PDF..."):
+        with st.spinner("Running inference and building the PDF explanation..."):
             try:
                 result = run_model(img_path=image_path, image_name=Path(image_path).name)
             except Exception as exc:
                 _clear_phase3_result(question_key)
-                st.error(f"Chạy mô hình thất bại: {exc}")
+                st.error(f"Inference failed: {exc}")
             else:
                 st.session_state[result_key] = result
-                st.success("Đã chạy xong mô hình. Dự đoán và phần giải thích đã sẵn sàng.")
+                st.success("Inference complete. The prediction and explanation are ready.")
 
     result = st.session_state.get(result_key)
     if result:
         _render_phase3_prediction(result)
     else:
-        st.warning("Hãy chạy mô hình để xem dự đoán và phần giải thích của AI trước khi gửi câu trả lời.")
+        st.warning("Run inference to view the AI prediction and explanation before submitting your answer.")
 
-    # The stored value stays English so the results spreadsheet and the analysis
-    # scripts are unchanged by the translation; only the label is Vietnamese.
+    # The stored value is what reaches the results spreadsheet; i18n only
+    # controls how that value is presented on screen.
     answer = st.radio(
-        "Chẩn đoán",
+        "Diagnosis",
         ["Benign", "Melanoma"],
         format_func=i18n.diagnosis,
         horizontal=True,
@@ -154,9 +154,9 @@ def render_phase3_question(question_number: int, total_questions: int = 8) -> No
         disabled=result is None,
     )
 
-    st.markdown("#### Mức độ tự tin")
+    st.markdown("#### Confidence level")
     confidence = st.slider(
-        "Quý bác sĩ tự tin đến mức nào về câu trả lời của mình? (0% = không tự tin, 100% = rất tự tin)",
+        "How confident are you in your answer? (0% = not confident, 100% = very confident)",
         min_value=0,
         max_value=100,
         value=50,
@@ -170,7 +170,7 @@ def render_phase3_question(question_number: int, total_questions: int = 8) -> No
     # second event, which is how the duplicate rows in the collected data
     # arose. The write path itself has to be idempotent.
     if st.button(
-        "Gửi câu trả lời",
+        "Submit",
         type="primary",
         key=f"{question_key}_submit",
         disabled=result is None or submitted,
@@ -219,63 +219,63 @@ def render_phase3_question(question_number: int, total_questions: int = 8) -> No
 
     if submitted:
         if question_number < total_questions:
-            st.success("Đã lưu câu trả lời của Quý bác sĩ.")
+            st.success("Saved your answer.")
         else:
-            st.success("Đã lưu câu trả lời. Giai đoạn 3 đã hoàn tất.")
+            st.success("Saved your answer. Phase 3 is complete.")
         render_next_button(
             f"pages/{18 + question_number}_Phase_3_Question_{question_number}.py",
-            "Câu hỏi tiếp theo" if question_number < total_questions else "Tiếp tục sang Giai đoạn 4",
+            "Next question" if question_number < total_questions else "Continue to Phase 4",
         )
 
 
 def _render_phase3_prediction(result: dict[str, Any]) -> None:
-    st.markdown("#### Dự đoán của AI")
+    st.markdown("#### AI prediction")
     st.markdown(
-        "### Mô hình đề nghị đánh giá thêm nếu tổng điểm soi da từ 3 trở lên."
+        "### The model recommends further examination when the total dermoscopic score is 3 or above."
     )
 
     prediction = result.get("prediction") or "Unavailable"
-    st.success(f"Dự đoán: {i18n.diagnosis(prediction)}")
+    st.success(f"Prediction: {i18n.diagnosis(prediction)}")
 
     prob_melanoma = result.get("prob_melanoma")
     if isinstance(prob_melanoma, (int, float)):
-        st.caption(f"Nguy cơ u hắc tố ác tính ước tính: {float(prob_melanoma) * 100:.1f}%")
+        st.caption(f"Estimated melanoma risk: {float(prob_melanoma) * 100:.1f}%")
 
     explanation_image = result.get("explanation_image")
     if explanation_image:
-        st.markdown("#### Xem trước phần giải thích")
+        st.markdown("#### Explanation preview")
         st.image(
             explanation_image,
-            caption="Bản xem trước phần giải thích được tạo từ kết quả của mô hình",
+            caption="Explanation preview generated from the model output",
             use_container_width=True,
         )
 
     checklist_table = result.get("checklist_table")
     table_rows = _normalize_checklist_table_rows(checklist_table)
     if table_rows:
-        st.markdown("#### Điểm của từng đặc điểm")
+        st.markdown("#### Attribute scores")
         st.dataframe(
             i18n.checklist_rows(table_rows),
             hide_index=True,
             use_container_width=True,
         )
 
-    st.markdown("#### Bản giải thích PDF")
+    st.markdown("#### PDF explanation")
     explanation_pdf = result.get("explanation_pdf")
     if explanation_pdf:
         pdf_path = Path(explanation_pdf)
         if pdf_path.exists():
             st.download_button(
-                "Tải bản giải thích PDF",
+                "Download the PDF explanation",
                 data=pdf_path.read_bytes(),
                 file_name=pdf_path.name,
                 mime="application/pdf",
                 key=f"download_{pdf_path.stem}",
             )
         else:
-            st.warning(f"Không tìm thấy bản giải thích PDF: {pdf_path}")
+            st.warning(f"PDF explanation not found: {pdf_path}")
     else:
-        st.warning("Lần chạy này không tạo ra bản giải thích PDF.")
+        st.warning("This run did not produce a PDF explanation.")
 
 
 def _clear_phase3_result(question_key: str) -> None:
