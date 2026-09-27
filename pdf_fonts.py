@@ -1,7 +1,7 @@
-"""Make reportlab render the full Unicode range in the explanation PDFs.
+"""Make reportlab render Vietnamese in the generated explanation PDFs.
 
-reportlab's built-in Helvetica is a Latin-1 font, so any character outside that
-range would come out as a black box. The vendor model code
+reportlab's built-in Helvetica is a Latin-1 font, so every Vietnamese diacritic
+in the explanation reports would come out as a black box. The vendor model code
 asks for "Helvetica" in dozens of places, so rather than editing each call site
 this registers a Unicode TTF *under the built-in names*: reportlab resolves font
 names through its own registry, so the existing setFont("Helvetica", ...) and
@@ -11,8 +11,8 @@ Call install() once before any PDF is generated -- precompute.py and utils.py
 both do, so it applies whether the artifacts are built from the cache script or
 from a local live-inference run.
 
-matplotlib needs no equivalent: its default DejaVu Sans already has the
-coverage.
+matplotlib needs no equivalent: its default DejaVu Sans already covers
+Vietnamese.
 """
 
 from __future__ import annotations
@@ -50,7 +50,7 @@ def _matplotlib_dejavu() -> tuple[str, str] | None:
 
 
 def install() -> bool:
-    """Point reportlab's Helvetica names at a Unicode-capable font.
+    """Point reportlab's Helvetica names at a Vietnamese-capable font.
 
     Idempotent and safe to call from anywhere; returns True once a font is in
     place. Never raises: a PDF with the wrong glyphs is a better failure than an

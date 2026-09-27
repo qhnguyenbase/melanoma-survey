@@ -1,109 +1,106 @@
-"""English display strings for values that come out of the model cache.
+"""Vietnamese display strings for values that come out of the model cache.
 
-Everything written to the results spreadsheet stays in the raw form the model
-produces, so fetch_responses.py, reconcile_phase4.py and dedupe_responses.py
-keep matching the same column names and values, and the precomputed manifest
-never has to be regenerated. This module is that boundary: it is only ever
-called on the display path, never on the write path.
-
-Its job is presentation, not translation -- the cache already holds English, but
-it holds it in the model's own casing and shorthand ("non-melanoma", "pigment
-network", "atypical"). These tables turn that into the wording a clinician
-reads on screen and in the generated reports.
+The survey is administered to Vietnamese clinicians, so every string a
+participant sees is Vietnamese -- but everything written to the results
+spreadsheet stays in English, so fetch_responses.py, reconcile_phase4.py and
+dedupe_responses.py keep matching the same column names and values, and the
+precomputed manifest never has to be regenerated. This module is that boundary:
+it is only ever called on the display path, never on the write path.
 """
 
 from __future__ import annotations
 
 from typing import Any
 
-# Model prediction / ground-truth labels. The keys are what the manifest holds
-# and what the survey saves; only the values reach the screen.
+# Model prediction / ground-truth labels. The English keys are what the manifest
+# holds and what the survey saves; only the values reach the screen.
 DIAGNOSIS: dict[str, str] = {
-    "benign": "Benign",
-    "melanoma": "Melanoma",
-    "non-melanoma": "Non-melanoma",
-    "unavailable": "Unavailable",
+    "benign": "Lành tính",
+    "melanoma": "U hắc tố ác tính (Melanoma)",
+    "non-melanoma": "Không phải u hắc tố ác tính",
+    "unavailable": "Không có kết quả",
 }
 
-# 7-point checklist attributes, as they appear in the dermoscopy literature.
+# 7-point checklist attributes. The English term is kept in brackets: it is the
+# form Vietnamese dermatologists see in the dermoscopy literature, and dropping
+# it would make the ratings harder to compare with the English-language run.
 ATTRIBUTES: dict[str, str] = {
-    "pigment network": "Pigment network",
-    "streaks": "Streaks",
-    "pigmentation": "Pigmentation",
-    "regression structures": "Regression structures",
-    "dots and globules": "Dots and globules",
-    "blue whitish veil": "Blue whitish veil",
-    "vascular structures": "Vascular structures",
-    "total dermoscopic score": "Total dermoscopic score",
-    "assigned cluster": "Assigned cluster",
+    "pigment network": "Mạng lưới sắc tố (pigment network)",
+    "streaks": "Vệt sắc tố (streaks)",
+    "pigmentation": "Vùng tăng sắc tố (pigmentation)",
+    "regression structures": "Cấu trúc thoái triển (regression structures)",
+    "dots and globules": "Chấm và cầu sắc tố (dots and globules)",
+    "blue whitish veil": "Màn xanh trắng (blue whitish veil)",
+    "vascular structures": "Cấu trúc mạch máu (vascular structures)",
+    "total dermoscopic score": "Tổng điểm soi da",
+    "assigned cluster": "Cụm được gán",
 }
 
-# The form used in the generated PDFs, where the table column is a fixed 130pt
-# and the clue captions are truncated at 36 characters. Every English name fits
-# inside both limits, so this matches ATTRIBUTES; it stays a separate table
-# because the two are free to diverge if a longer attribute name is added.
+# Same attributes without the English gloss, for the generated PDFs: the table
+# column there is a fixed 130pt and the clue captions are truncated at 36
+# characters, so the long form would overflow or be cut mid-word.
 ATTRIBUTES_SHORT: dict[str, str] = {
-    "pigment network": "Pigment network",
-    "streaks": "Streaks",
-    "pigmentation": "Pigmentation",
-    "regression structures": "Regression structures",
-    "dots and globules": "Dots and globules",
-    "blue whitish veil": "Blue whitish veil",
-    "vascular structures": "Vascular structures",
-    "total dermoscopic score": "Total dermoscopic score",
-    "assigned cluster": "Assigned cluster",
+    "pigment network": "Mạng lưới sắc tố",
+    "streaks": "Vệt sắc tố",
+    "pigmentation": "Vùng tăng sắc tố",
+    "regression structures": "Cấu trúc thoái triển",
+    "dots and globules": "Chấm và cầu sắc tố",
+    "blue whitish veil": "Màn xanh trắng",
+    "vascular structures": "Cấu trúc mạch máu",
+    "total dermoscopic score": "Tổng điểm soi da",
+    "assigned cluster": "Cụm được gán",
 }
 
 # Attribute states as the weakly supervised model reports them.
 STATES: dict[str, str] = {
-    "absent": "Absent",
-    "present": "Present",
-    "typical": "Typical",
-    "atypical": "Atypical",
-    "regular": "Regular",
-    "irregular": "Irregular",
-    "diffuse irregular": "Diffuse irregular",
-    "blue areas": "Blue areas",
-    "combinations": "Combinations",
-    "within regression": "Within regression",
+    "absent": "không có",
+    "present": "có",
+    "typical": "điển hình",
+    "atypical": "không điển hình",
+    "regular": "đều",
+    "irregular": "không đều",
+    "diffuse irregular": "lan tỏa không đều",
+    "blue areas": "vùng màu xanh",
+    "combinations": "dạng phối hợp",
+    "within regression": "trong vùng thoái triển",
 }
 
 # Column headers of the attribute-score table.
 COLUMNS: dict[str, str] = {
-    "Attribute": "Attribute",
-    "Prediction": "Prediction",
-    "State": "State",
-    "Points": "Points",
-    "Attr score": "Attribute score",
-    "Probability (%)": "Probability (%)",
+    "Attribute": "Đặc điểm",
+    "Prediction": "Dự đoán",
+    "State": "Trạng thái",
+    "Points": "Điểm",
+    "Attr score": "Điểm đặc điểm",
+    "Probability (%)": "Xác suất (%)",
 }
 
 # Free-text fields the manifest carries through to the page.
 NOTES: dict[str, str] = {
     "clustering explanation is based on tabular features linked to this image id.":
-        "The clustering explanation is based on tabular features linked to this "
-        "image ID, not on the raw pixels.",
+        "Phần giải thích của mô hình phân cụm dựa trên các đặc trưng dạng bảng "
+        "gắn với mã ảnh này, không dựa trên điểm ảnh gốc.",
 }
 
 PREVIEW_LABELS: dict[str, str] = {
-    "latent space position": "latent space position",
-    "global explanation": "global explanation",
-    "local explanation": "local explanation",
+    "latent space position": "vị trí trong không gian tiềm ẩn",
+    "global explanation": "giải thích tổng thể",
+    "local explanation": "giải thích cục bộ",
 }
 
 # How the cache matched this image; shown as a caption in Phase 4.
 ID_SOURCES: dict[str, str] = {
-    "filename": "by filename",
-    "image_key": "by image key",
+    "filename": "theo tên tệp",
+    "image_key": "theo mã ảnh",
 }
 
 
 def _lookup(table: dict[str, str], value: Any) -> str:
-    """Format `value` via `table`, falling back to the original text.
+    """Translate `value` via `table`, falling back to the original text.
 
     Unknown values pass through rather than raising: a manifest regenerated with
-    a new state or attribute must still render, in its raw form, instead of
-    taking the page down mid-survey.
+    a new state or attribute must still render, in English, instead of taking
+    the page down mid-survey.
     """
     text = "" if value is None else str(value)
     return table.get(text.strip().lower(), text)
@@ -118,7 +115,7 @@ def attribute(value: Any) -> str:
 
 
 def attribute_short(value: Any) -> str:
-    """Shortest attribute form, for tight layouts."""
+    """Vietnamese attribute name without the English gloss, for tight layouts."""
     return _lookup(ATTRIBUTES_SHORT, value)
 
 
@@ -139,7 +136,7 @@ def id_source(value: Any) -> str:
 
 
 def term(value: Any) -> str:
-    """Format a cell that may be an attribute name, a state or a diagnosis."""
+    """Translate a cell that may be an attribute name, a state or a diagnosis."""
     text = "" if value is None else str(value)
     key = text.strip().lower()
     for table in (ATTRIBUTES, STATES, DIAGNOSIS):
@@ -149,10 +146,10 @@ def term(value: Any) -> str:
 
 
 def pdf_table(table_data: list[list[Any]]) -> list[list[Any]]:
-    """Format a header-row-plus-body table for a generated PDF.
+    """Localize a header-row-plus-body table for a generated PDF.
 
-    Row 0 is treated as column headers, the rest as attribute names and states,
-    using the short attribute form so the fixed column widths hold.
+    Row 0 is translated as column headers, the rest as attribute names and
+    states, using the short attribute form so the fixed column widths hold.
     """
     if not table_data:
         return table_data
@@ -166,9 +163,9 @@ def pdf_table(table_data: list[list[Any]]) -> list[list[Any]]:
 
 
 def checklist_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """Format the attribute-score table for display.
+    """Localize the attribute-score table for display.
 
-    Both the header keys and the text cells are formatted; numeric cells
+    Both the header keys and the text cells are translated; numeric cells
     (Points, Probability) are left exactly as the model produced them.
     """
     localized: list[dict[str, Any]] = []
